@@ -89,7 +89,7 @@
     </div>
     
   </div>
-  <input type="submit" class="mt-8 bg-blue-lighter p-3 rounded text-blue-darkest" value="Speichern">
+  <input type="submit" class="mt-8 bg-blue-lighter p-3 rounded text-blue-darkest" value="Speichern" name="submit">
 </div>
 
                 </form>

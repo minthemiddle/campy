@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Camp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CampController extends Controller
 {
@@ -14,8 +15,9 @@ class CampController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $camps = \App\Camp::all();
-        return view('camp.show',compact('camps', 'free'));
+        return view('camp.show',compact('camps', 'free', 'user'));
     }
 
     /**
