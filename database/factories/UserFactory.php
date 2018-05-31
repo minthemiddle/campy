@@ -28,5 +28,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'zip' => '10115',
         'gender' => 'f',
         'password' => $pw,
+        'complete' => 0,
     ];
 });
