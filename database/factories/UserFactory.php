@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Faker\Generator as Faker;
 
 /*
@@ -13,7 +14,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     $user = $faker->firstname;
     $pw = bcrypt('secret');
 
@@ -28,6 +29,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'zip' => '10115',
         'gender' => 'f',
         'password' => $pw,
+        'mobile' => random_int(1,99999),
         'complete' => 0,
     ];
 });
