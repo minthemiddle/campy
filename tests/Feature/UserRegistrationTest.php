@@ -21,7 +21,7 @@ class UserRegistrationTest extends TestCase
     public function testRegistration()
     {
         $this->visit('/')
-             ->click('Register')
+             ->click('Registrieren')
              ->type('test1', 'username')
              ->type('test@test.dev', 'email')
              ->type('secret', 'password')
