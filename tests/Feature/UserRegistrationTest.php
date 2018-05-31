@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class UserRegistrationTest extends TestCase
 {
@@ -30,4 +32,15 @@ class UserRegistrationTest extends TestCase
              ->seePageIs('/home')
              ->see('Deine Daten');
     }
+
+    // make sure you cannot register for a camp without giving details
+    public function testRegisterWithoutDetailsNotPossible()
+    {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)
+        ->visit('/camps')
+        ->see('vervollstätigen');
+    }
+
 }
