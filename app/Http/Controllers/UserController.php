@@ -48,6 +48,7 @@ class UserController extends Controller
             $user->instagram = $request->instagram;
             $user->twitter = $request->twitter;
             $user->zip = $request->zip;
+            $user->complete = 1;
             $user->save();
 
             return redirect('home');

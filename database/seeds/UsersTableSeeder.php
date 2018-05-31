@@ -23,6 +23,7 @@ class UsersTableSeeder extends Seeder
             'birthdate' => date('2005-05-01'),
             'gender' => 'f',
             'password' => bcrypt('secret'),
+            'complete' => 1,
         ]);
 
         // factory(App\User::class, 50)->create();
