@@ -48,13 +48,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $minimumAge = Carbon::now()->subYears(9);
 
         return Validator::make($data, [
             'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6|confirmed',
-            'birthdate' => 'required|date|before:$minimumAge',
+            'birthdate' => 'required|date|before:-9 years',
         ]);
     }
 
