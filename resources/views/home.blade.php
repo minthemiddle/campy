@@ -111,7 +111,7 @@
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="guardian_phone">
         Handynummer
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" name="guardian_phone" value="{{ $user->guardian_phone or old('guardian_phone') }}">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="tel" pattern="^[0-9-+s()]*$" name="guardian_phone" value="{{ $user->guardian_phone or old('guardian_phone') }}">
     </div> 
   </div>
   @endif
