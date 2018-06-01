@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CampUserController extends Controller
 {
@@ -152,16 +153,25 @@ class CampUserController extends Controller
             $comment = $request->comment;
             $reason = $request->reason_for_cancellation;
 
-            if (isset($reason)) {
-                return $status = 'cancelled';
-            }
+            if (isset($reason)){
+                $status = 'cancelled';
 
             $user->camps()->syncWithoutDetaching([$camp_registered => [
                 'status' => $status,
-                'contribution' => $contribution,
                 'comment' => $comment,
                 'reason_for_cancellation' => $reason
             ]]);
+            }
+
+            else {
+               $user->camps()->syncWithoutDetaching([$camp_registered => [
+                'contribution' => $contribution,
+                'laptop' => $laptop,
+                'comment' => $comment
+            ]]); 
+            }
+
+            
 
             return redirect('/mycamps');
         } else {
