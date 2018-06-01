@@ -5,7 +5,7 @@
     <div class="w-full max-w-md md:mx-auto">
         <div class="rounded shadow">
             <div class="font-medium text-lg text-brand-darker bg-brand-lighter p-3 rounded-t">
-                Register
+                Registrieren (Teilnehmer)
             </div>
             <div class="bg-white p-3 rounded-b">
                 <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -24,6 +24,14 @@
                         <div class="flex flex-col w-3/4">
                             <input id="email" type="email" class="flex-grow h-8 px-2 border rounded {{ $errors->has('email') ? 'border-red-dark' : 'border-grey-light' }}" name="email" value="{{ old('email') }}" required>
                             {!! $errors->first('email', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
+                        </div>
+                    </div>
+
+                    <div class="flex items-stretch mb-3">
+                        <label for="email" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Geburtsdatum</label>
+                        <div class="flex flex-col w-3/4">
+                            <input id="email" type="date" class="flex-grow h-8 px-2 border rounded {{ $errors->has('birthdate') ? 'border-red-dark' : 'border-grey-light' }}" name="birthdate" value="{{ old('birthdate') }}" required>
+                            {!! $errors->first('birthdate', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
                         </div>
                     </div>
 
