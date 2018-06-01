@@ -1,13 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+@php
+  $formdate = $user->birthformatted->format('Y-m-d');
+@endphp
 
 <div class="ml-8 "><h2 class="text-blue-darker">Deine Daten</h2>
 <p>Bitte verfolgständige deine Daten. Nur mit vollständigen Daten kannst du dich bei einem Camp anmelden.</p></div>
 
 @if ($errors->any())
 <div class="bg-yellow rounded-lg p-4">
-    Bitte alle Boxen markieren und Felder richtig ausfüllen.
+    Bitte alle Boxen markieren und Felder richtig ausfüllen:
+    
+    <ul>
+      @foreach ($errors->all() as $message) 
+    <li>{{ $message }}</li>
+      @endforeach
+    </ul>
+    
 </div>
 @endif
 
@@ -25,19 +35,19 @@
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
         Vorname(n)
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3" id="grid-first-name" type="text" name="firstname" placeholder="Grace" value="{{ $user->firstname or old('firstname') }}">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3" type="text" name="firstname" placeholder="Grace" value="{{ $user->firstname or old('firstname') }}">
     </div>
     <div class="md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
         Nachname
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" name="lastname" placeholder="Hopper" value="{{ $user->lastname or old('lastname') }}">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" name="lastname" placeholder="Hopper" value="{{ $user->lastname or old('lastname') }}">
     </div>
     <div class="md:w-1/2 px-3 mb-6 md:mb-0 mt-4 md:mt-0">
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
         Geburtstag
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="date" name="birthdate" value="{{ $user->birthFormatted or old('birthdate') }}">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="date" name="birthdate" value="{{ $formdate or old('birthdate') }}">
     </div>
   </div>
   <div class="-mx-3 md:flex mb-2">
@@ -46,7 +56,7 @@
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="mobile">
         Handynummer
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="mobile" type="tel" pattern="^[0-9-+s()]*$" name="mobile" value="{{ $user->mobile or old('mobile') }}" placeholder="0172-12345678">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="tel" pattern="^[0-9-+s()]*$" name="mobile" value="{{ $user->mobile or old('mobile') }}" placeholder="0172-12345678">
     </div>
     
     <div class="md:w-1/2 px-3">
@@ -54,7 +64,7 @@
         Ernährung
       </label>
       <div class="relative">
-        <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state" name="diet">
+        <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" name="diet">
           @foreach ($diets as $diet)
           <option value="{{ $diet }}" {{ $selected_diet == $diet ? 'selected="selected"' : '' }}>{{ $diet }}</option>
           {{ $diet }}
@@ -69,26 +79,43 @@
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
         PLZ
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" name="zip" id="grid-zip" type="text" value="{{ $user->zip or old('zip') }}">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" name="zip" type="text" pattern="\d{5}" value="{{ $user->zip or old('zip') }}">
     </div>
 
   </div>
-  <h3 class="mt-4 mb-2 text-grey-dark">Freiwillige Angaben</h3>
+
+  @if ($user->age < 18)
+  <h3 class="mt-4 mb-2 text-grey-dark">Erziehungsberechtigter</h3>
   <div class="-mx-3 md:flex mb-2">
     <div class="px-3 mb-6 md:mb-0 flex-1">
-      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="Instagram">
-        Instagram
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="guardian_firstname">
+        Vorname
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" name="instagram" placeholder="codeunddesign" value="{{ $user->instagram or old('instagram') }}">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" name="guardian_firstname" value="{{ $user->guardian_firstname or old('guardian_firstname') }}">
     </div>
     <div class="px-3 mb-6 md:mb-0 flex-1">
-      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="twitter">
-        Twitter
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="guardian_lastname">
+        Nachname
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" name="twitter"  placeholder="@codeunddesign" pattern="^@[A-Za-z0-9_]{1,32}$" value="{{ $user->twitter or old('twitter') }}">
-    </div>
-    
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" name="guardian_lastname" value="{{ $user->guardian_lastname or old('guardian_lastname') }}">
+    </div> 
   </div>
+    <div class="-mx-3 md:flex mb-2">
+    <div class="px-3 mb-6 md:mb-0 flex-1">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="guardian_email">
+        Email
+      </label>
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="email" name="guardian_email" value="{{ $user->guardian_email or old('guardian_email') }}">
+    </div>
+    <div class="px-3 mb-6 md:mb-0 flex-1">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="guardian_phone">
+        Handynummer
+      </label>
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" name="guardian_phone" value="{{ $user->guardian_phone or old('guardian_phone') }}">
+    </div> 
+  </div>
+  @endif
+
   <input type="submit" class="mt-8 bg-blue-lighter p-3 rounded text-blue-darkest" value="Speichern" name="submit">
 </div>
 

@@ -32,24 +32,24 @@ class User extends Authenticatable
 
     public function getAgeAttribute()
     {
-            $fallback = Carbon::now();
             if (isset($this->birthdate)) {
                 $birth = Carbon::instance($this->birthdate);
+                $birth = $birth->age;
             } else {
-                $birth = $fallback;
+                $birth = 0;
             }
-            return $birth->age;
+            return $birth;
     }
 
     public function getBirthFormattedAttribute()
     {
-            $fallback = Carbon::now();
             if (isset($this->birthdate)) {
                 $birth = Carbon::instance($this->birthdate);
+                $birth->toDateString();
             } else {
-                $birth = $fallback;
+                $birth = null;
             }
-            return $birth->format('Y-m-d');
+            return $birth;
     }
 
     public function camps()

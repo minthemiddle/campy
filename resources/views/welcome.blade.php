@@ -32,7 +32,8 @@
                     <h1 class="text-grey-darker text-center font-hairline tracking-wide text-7xl mb-6">
                         {{ config('app.name', 'Laravel') }}
                     </h1>
-                    <p class="text-center mb-6 text-grey-darker">Hier kannst du dich für Camps anmelden.</p>
+                    <p class="text-center text-grey-darker">Hier kannst du dich für Camps anmelden.</p>
+                    <p class="text-center mb-6 text-grey-darker">Hierfür musst du ein <a href="{{ route('register') }}" class="no-underline hover:underline  font-normal text-brand-dark">Benutzerkonto anlegen</a></p>
                     <div class="text-center mb-8 font-bold">
                 @auth
                     <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm text-brand-dark uppercase">Home</a>
