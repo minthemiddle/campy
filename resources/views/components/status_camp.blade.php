@@ -1,18 +1,18 @@
 @switch($camp)
     @case('registered')
-        <span class="bg-yellow p-2 rounded">Registriert</span>
+        <p class="-mt-2 bg-yellow p-2 rounded">Registriert</p>
         @break
 
     @case('confirmed')
-        <span class="bg-green-light p-2 rounded">Bestätigt</span>
+        <p class="-mt-2 bg-green-light p-2 rounded">Bestätigt</p>
         @break
 
     @case('cancelled')
-        <span class="bg-red p-2 rounded text-white">Abgesagt</span>
+        <p class="-mt-2 bg-red p-2 rounded text-white">Abgesagt</p>
         @break
 
     @case('waiting')
-        <span class="bg-orange-light p-2 rounded">Warteliste</span>
+        <p class="-mt-2 bg-orange-light p-2 rounded">Warteliste</p>
         @break
 
     @default

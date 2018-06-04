@@ -1,22 +1,22 @@
 @switch($laptop)
     @case('own')
-        <span class="bg-grey-light p-2 rounded">Registriert</span>
+        <p class="-mt-2 bg-grey-light p-2 rounded">Registriert</p>
         @break
 
     @case('payer')
-        <span class="bg-grey-light p-2 rounded">Leihlaptop (Gebühr)</span>
+        <p class="-mt-2 bg-grey-light p-2 rounded">Leihlaptop (Gebühr)</p>
         @break
 
     @case('waiver')
-        <span class="bg-grey-light p-2 rounded text-white">Leihlaptop (kostenlos)</span>
+        <p class="-mt-2 bg-grey-light p-2 rounded">Leihlaptop (kostenlos)</p>
         @break
 
     @case('win')
-        <span class="bg-grey-light p-2 rounded">Leihlaptop (kostenlos)</span>
+        <p class="-mt-2 bg-grey-light p-2 rounded">Leihlaptop (kostenlos)</p>
         @break
 
     @case('paid')
-        <span class="bg-green-light p-2 rounded">Leihlaptop Bezahlt!</span>
+        <p class="-mt-2 bg-green-light p-2 rounded">Leihlaptop Bezahlt!</p>
         @break
 
     @default
