@@ -82,8 +82,8 @@
     <label for="laptop">Laptop</label><br>
     <select name="laptop" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                 <option value="own" @if ($camp->pivot->laptop == 'own') selected @endif>Nein, ich nutze eigenen Laptop</option>
-                <option value="payer" @if ($camp->pivot->laptop == 'payer' or $camp->pivot->laptop == 'paid') selected @endif>Ja, ich überweise 75€ Unkostenbeitrag</option>
-                <option value="waiver" @if ($camp->pivot->laptop == 'waiver') selected @endif>Ja, aber ich kann den Unkostenbeitrag nicht zahlen</option>
+                <option value="payer" @if ($camp->pivot->laptop == 'payer' or $camp->pivot->laptop == 'paid') selected @endif>Ja, ich leihe Laptop und überweise 75€ Unkostenbeitrag</option>
+                <option value="waiver" @if ($camp->pivot->laptop == 'waiver') selected @endif>Ja, ich leihe Laptop, kann aber den Unkostenbeitrag nicht zahlen</option>
                 
             </select>
 
