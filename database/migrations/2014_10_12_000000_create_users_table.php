@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->smallInteger('zip')->nullable();
+            $table->string('zip', 5)->nullable();
             $table->string('city')->nullable();
             $table->date('birthdate')->nullable();
             $table->integer('referral')->nullable();
