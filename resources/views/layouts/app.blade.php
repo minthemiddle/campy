@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-brand-lightest h-screen antialiased">
-    <div id="app">
+    
         <nav class="bg-white shadow mb-8 pl-8 md:px-0 flex justify-between">
             
                         <div class="p-4 pl-8 flex-1">
@@ -47,12 +47,10 @@
                         </div>
         </nav>
 
-        <main class="w-full p-8">
+        <main class="w-full p-8" id="app">
             @yield('content')
         </main>
         
-    </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
