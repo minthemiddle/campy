@@ -19,7 +19,7 @@ mix.js("resources/assets/js/app.js", "public/js")
    .tailwind()
    .purgeCss();
 
-mix.browserSync('registration.test');
+mix.browserSync('campy.test');
 
 if (mix.inProduction()) {
   mix.version();
