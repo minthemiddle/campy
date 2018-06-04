@@ -24,7 +24,7 @@ We love contributions. You can find the guidelines [here](https://github.com/Cod
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Martin via [martin@code.design](mailto:martin@code.design). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Martin via [hallo@cdcamp.de](mailto:hallo@cdcamp.de) – [PGP key](public.key). All security vulnerabilities will be promptly addressed.
 
 ## License
 
