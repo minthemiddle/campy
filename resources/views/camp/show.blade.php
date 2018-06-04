@@ -22,7 +22,7 @@
       <td class="font-bold">{{ $camp->city }}</th>
       <td>{{ $camp->from->format('d.m.Y') }}</td>
       <td>{{ $camp->to->format('d.m.Y') }}</td>
-      <td><span class="rounded p-2 @if ( $camp->status == 'Warteliste' ) bg-yellow @else bg-green text-white @endif">{{ $camp->status }}</span></td>
+      <td><span class="rounded p-2 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">{{ $camp->status }}</span></td>
       <td>@if ($user->complete == '1')<a href="mycamps/create/{{ $camp->id  }}">Anmelden</a>@else <a href="/home">Profil vervollständigen</a>@endif</td>
     </tr>
 

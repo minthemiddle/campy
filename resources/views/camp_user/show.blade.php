@@ -9,28 +9,9 @@
 {{ $camp->city }}, {{ $camp->from->format('d.m.Y') }} bis {{ $camp->to->format('d.m.Y') }}, {{$camp->shortcode }}
 @endisset
 
-<div>Mein Campstatus:
+<div class="mt-2">Mein Campstatus:
 
-@switch($camp->pivot->status)
-    @case('registered')
-        <span class="bg-yellow p-1 rounded text-xs">Registriert</span>
-        @break
-
-    @case('confirmed')
-        <span class="bg-green-light p-1 rounded text-xs">Bestätigt</span>
-        @break
-
-    @case('cancelled')
-        <span class="bg-red p-1 rounded text-xs text-white">Abgesagt</span>
-        @break
-
-    @case('waiting')
-        <span class="bg-orange-light p-1 rounded text-xs">Warteliste</span>
-        @break
-
-    @default
-        Unbekannt
-@endswitch
+@component('components.status_camp', ['camp' => $camp->pivot->status]) @endcomponent
 </div>
 
 </div>

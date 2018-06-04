@@ -23,8 +23,8 @@
       <td class="font-bold"><a href="mycamps/{{ $camp->id }}">{{ $camp->city }}</a></th>
       <td>{{ $camp->from->format('d.m.Y') }}</td>
       <td>{{ $camp->to->format('d.m.Y') }}</td>
-      <td>{{ $camp->pivot->status }}</td>
-      <td>{{ $camp->pivot->laptop }}</td>
+      <td>@component('components.status_camp', ['camp' => $camp->pivot->status]) @endcomponent</td>
+      <td>@component('components.status_laptop', ['laptop' => $camp->pivot->laptop]) @endcomponent</td>
       <td><a href="mycamps/{{ $camp->id }}/edit">Ändern/Absagen</a></td>
     </tr>
     @endforeach
