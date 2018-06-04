@@ -26,10 +26,10 @@
             </div>
         @endif
 
-        <div class="min-h-screen flex items-center justify-center">
-            <div class="flex flex-col justify-around h-full">
+        <div class="flex items-center justify-center mt-8">
+            <div class="flex flex-col mt-4 lg">
                 <div>
-                    <h1 class="text-grey-darker text-center font-hairline tracking-wide text-7xl mb-6">
+                    <h1 class="text-grey-darker text-center tracking-wide text-7xl mb-6">
                         {{ config('app.name', 'Laravel') }}
                     </h1>
                     <p class="text-center text-grey-darker">Hier kannst du dich für Camps anmelden.</p>
@@ -60,10 +60,35 @@
                         </li>
                     </ul>
             </div>
+            <div class="flex table-responsive items-center"><table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Stadt</th>
+          <th scope="col">Von</th>
+          <th scope="col">Bis</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($camps as $camp)
+        <tr>
+          <td class="font-bold"><a href="mycamps/create/{{ $camp->id  }}">{{ $camp->city }}</a></th>
+          <td>{{ $camp->from->format('d.m.') }}</td>
+          <td>{{ $camp->to->format('d.m.Y') }}</td>
+          <td><p class="rounded p-2 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">{{ $camp->status }}</p></td>
+        </tr>
+    
+        @endforeach
+      </tbody>
+    </table></div>
                     
                 </div>
             </div>
+
         </div>
+        
+
     </div>
+    
 </body>
 </html>

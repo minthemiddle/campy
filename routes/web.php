@@ -12,11 +12,12 @@
 */
 Auth::routes();
 
-Route::get('/', function () { return view('welcome'); });
+// Route::get('/', function () { return view('welcome'); });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/teilnahmebedingungen', function() { return view('legal.terms');} );
 Route::get('/datenschutz', function() { return view('legal.privacy');} );
 
+Route::get('/', 'WelcomeController@index');
 Route::get('mycamps/create/{camp}', 'CampUserController@create');
 Route::resource('mycamps', 'CampUserController');
 Route::resource('camps', 'CampController');
