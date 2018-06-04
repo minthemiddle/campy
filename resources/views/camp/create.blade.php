@@ -81,7 +81,7 @@
 
   </div>
         <div class="mt-4 ml-4">
-        <p><input type="checkbox" name="tos" value="1"> <a href="#">Teilnahmebedingungen</a> akzeptieren</p>
+        <p><input type="checkbox" name="tos" value="1"> <a href="/teilnahmebedingungen" target="_blank">Teilnahmebedingungen</a> akzeptieren</p>
         <p class="mt-2"><input type="checkbox" name="consent" value="1" > <a href="/datenschutz" target="_blank">Einwilligung der Speicherung personenbezogener Daten
 </a> erteilen</p>
 
