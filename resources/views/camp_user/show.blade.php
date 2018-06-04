@@ -13,7 +13,7 @@
 
 <div class="-ml-4 p-4 mt-2 bg-grey-lighter lg:w-2/3 shadow" id="status"><h3 class="mb-6">Anmeldestatus</h3>
 
-<div class="mb-4">@component('components.status_camp', ['camp' => $camp->pivot->status]) @endcomponent</div>
+<div class="mb-4 w-1/3">@component('components.status_camp', ['camp' => $camp->pivot->status]) @endcomponent</div>
 
 @if ($camp->pivot->status == 'registered' and $camp->pivot->contribution == 'payer')
 
@@ -100,7 +100,7 @@
         <p class="mt-4">Fehler entdeckt? Bitte <a href="/home" target="_blank">hier</a> korrigieren!</p>
     </div>
 
-    <div class="w-2/3 bg-grey-lighter p-4 mt-8" id="reqs"><h3 class="mt-8">Laptop/Unkostenbeitrag</h3>
+    <div class="lg:w-2/3 bg-grey-lighter p-4 mt-8" id="reqs"><h3 class="mt-8">Laptop/Unkostenbeitrag</h3>
     
         <div class="mt-2">
                     <label for="contribution">Unkostenbeitrag</label><br>
