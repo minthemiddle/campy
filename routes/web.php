@@ -14,6 +14,7 @@ Auth::routes();
 
 Route::get('/', function () { return view('welcome'); });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/datenschutz', function() { return view('legal.privacy');} );
 
 Route::get('mycamps/create/{camp}', 'CampUserController@create');
 Route::resource('mycamps', 'CampUserController');
