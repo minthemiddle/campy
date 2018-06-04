@@ -73,15 +73,17 @@
     </div>
 
     <h3 class="mt-8">Anmelde-Daten</h3>
+    <label for="contribution">Campbeitrag</label><br>
     <select name="contribution" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                 <option value="payer" @if($camp->pivot->contribution == 'payer')selected @endif>Ich zahle 75€ Unkostenbeitrag</option>
                 <option value="waiver" @if($camp->pivot->contribution == 'waiver')selected @endif>Ich kann den Unkostenbeitrag gerade nicht zahlen</option>
             </select>
-
+    
+    <label for="laptop">Laptop</label><br>
     <select name="laptop" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                 <option value="own" @if ($camp->pivot->laptop == 'own') selected @endif>Nein, ich nutze eigenen Laptop</option>
-                <option value="payer" @if ($camp->pivot->laptop == 'payer' or $camp->pivot->laptop == 'paid') selected @endif>Ja, ich überweise 75€ Unkostenbeitrag</option>
-                <option value="waiver" @if ($camp->pivot->laptop == 'waiver') selected @endif>Ja, aber ich kann den Unkostenbeitrag nicht zahlen</option>
+                <option value="payer" @if ($camp->pivot->laptop == 'payer' or $camp->pivot->laptop == 'paid') selected @endif>Ja, ich leihe Laptop und überweise 75€ Unkostenbeitrag</option>
+                <option value="waiver" @if ($camp->pivot->laptop == 'waiver') selected @endif>Ja, ich leihe Laptop, kann aber den Unkostenbeitrag nicht zahlen</option>
                 
             </select>
 
