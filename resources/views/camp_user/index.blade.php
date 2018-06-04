@@ -7,7 +7,7 @@
         <p class="text-sm mt-2">Über den Link <strong>Details</strong> kannst du bei jedem Camp den Fortschritt deiner Anmeldung sehen (Laptop, Bezahlung), innerhalb der Frist deine Daten ändern und absagen.</p>
     </div>
 
-<table class="table">
+<div class="table-responsive"><table class="table">
   <thead>
     <tr>
       <th scope="col">Stadt</th>
@@ -30,7 +30,7 @@
     </tr>
     @endforeach
   </tbody>
-</table>
+</table></div>
 
 </div>
 @endsection
