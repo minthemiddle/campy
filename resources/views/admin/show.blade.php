@@ -40,7 +40,7 @@
             <tr>
             <td>{{ $user->firstname }}</td>
             <td>{{ $user->lastname }}</td>
-            <td>{{ $user->email }}</td>
+            <td><a href="mailto:{{ $user->email }}?subject=Code+Design%20{{ $camp->city }}&body=Hallo%20{{ $user->firstname }}">{{ $user->email }}</a></td>
             <td>{{ $user->pivot->status }}</td>
             <td>{{ $user->pivot->laptop }}</td>
             <td>{{ $user->pivot->contribution }}</td>
