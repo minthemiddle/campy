@@ -24,6 +24,10 @@
       <td>{{ $camp->to->format('d.m.y') }}</td>
       <td>{{ $camp->freeSpots }}</td>
       <td>
+        @php
+          $subject = urlencode('Code+Design');
+          $salutation = urlencode('Hallo');
+        @endphp
         <table class="overflow-x-auto">
           <thead>
             <tr>
@@ -40,7 +44,7 @@
             <tr>
             <td>{{ $user->firstname }}</td>
             <td>{{ $user->lastname }}</td>
-            <td>{{ $user->email }}</td>
+            <td><a href="mailto:{{ $user->email }}?subject={{ $subject }}%20{{ $camp->city }}&body={{ $salutation }}%20{{ $user->firstname }}">{{ $user->email }}</a></td>
             <td>{{ $user->pivot->status }}</td>
             <td>{{ $user->pivot->laptop }}</td>
             <td>{{ $user->pivot->contribution }}</td>
