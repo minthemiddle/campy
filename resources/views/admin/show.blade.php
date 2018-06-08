@@ -11,8 +11,8 @@
       <th scope="col">Stadt</th>
       <th scope="col">Von</th>
       <th scope="col">Bis</th>
-      <th scope="col">Status</th>
-      <th scope="col">TN sorted</th>
+      <th scope="col">Noch frei</th>
+      <th scope="col">Teilnehmer</th>
 {{--       <th scope="col">Laptops</th>
  --}}    </tr>
   </thead>
@@ -20,17 +20,19 @@
     @foreach ($camps as $camp)
     <tr>
       <td class="font-bold">{{ $camp->city }}</th>
-      <td>{{ $camp->from }}</td>
-      <td>{{ $camp->to }}</td>
+      <td>{{ $camp->from->format('d.m.y') }}</td>
+      <td>{{ $camp->to->format('d.m.y') }}</td>
       <td>{{ $camp->freeSpots }}</td>
       <td>
-        <table>
+        <table class="overflow-x-auto">
           <thead>
             <tr>
               <th scope="col">Firstname</th>
               <th scope="col">Lastname</th>
-              <th scope="col">Contribution</th>
+              <th scope="col">Email</th>
+              <th scope="col">Status</th>
               <th scope="col">Laptop</th>
+              <th scope="col">Beitrag</th>
             </tr>
           </thead>
           <tbody>
@@ -39,7 +41,9 @@
             <td>{{ $user->firstname }}</td>
             <td>{{ $user->lastname }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->laptop }}</td>
+            <td>{{ $user->pivot->status }}</td>
+            <td>{{ $user->pivot->laptop }}</td>
+            <td>{{ $user->pivot->contribution }}</td>
             </tr>
             @endforeach
           </tbody>
