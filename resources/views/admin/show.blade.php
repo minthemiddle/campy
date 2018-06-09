@@ -5,7 +5,7 @@
 
 <!-- Start: Dashboard -->
     <div class="flex flex-wrap">
-      @foreach ($camps as $camp)
+      @foreach ($camps->sortBy('from') as $camp)
   <div class="p-4 bg-white rounded-lg ml-2">
     <div class="text-lg font-bold text-left mb-2">{{ $camp->city }} <span class="text-sm font-light tracking-wide ml-2">{{ $camp->shortcode }}</span></div>
   <table class="overflow-auto">
@@ -52,7 +52,7 @@
  --}}    </tr>
   </thead>
   <tbody>
-    @foreach ($camps as $camp)
+    @foreach ($camps->sortBy('from') as $camp)
     <tr>
       <td class="font-bold">{{ $camp->city }}</th>
       <td>{{ $camp->from->format('d.m.y') }}</td>
