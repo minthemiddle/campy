@@ -22,9 +22,12 @@
                                 <div class="mb-2 md:mb-0"><a href="{{ url('/home') }}" class="no-underline font-bold mr-4 font-blue-light">{{ config('app.name') }}</a></div>
                                 <div>
                                    @auth
-                                    <a href="/camps">Alle Camps</a>
-                                    <a href="/mycamps">Meine Camps</a>
-                                @endauth 
+                                    <a href="/camps">Alle Camps</a> |
+                                    <a href="/mycamps">Meine Camps</a> |
+                                   @if ($user->role === 'admin')
+                                    <a href="/admin">Admin</a>
+                                   @endif
+                                   @endauth 
                                 </div>
                             </div>
                         </div>
