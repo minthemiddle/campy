@@ -24,7 +24,10 @@
                                    @auth
                                     <a href="/camps">Alle Camps</a>
                                     <a href="/mycamps">Meine Camps</a>
-                                @endauth 
+                                   @if ($user->role === 'admin')
+                                    <a href="/admin">Admin</a>
+                                   @endif
+                                   @endauth 
                                 </div>
                             </div>
                         </div>
