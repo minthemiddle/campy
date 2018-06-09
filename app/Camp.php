@@ -32,6 +32,12 @@ class Camp extends Model
             return $free;
     }
 
+    public function getTotalParticipantsAttribute()
+    {
+            $registered = DB::table('camp_user')->where('camp_id', $this->id)->count();
+            return $registered;
+    }
+
     public function getStatusAttribute()
     {
             $registered = DB::table('camp_user')->where('camp_id', $this->id)->count();
