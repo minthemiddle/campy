@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="mb-4"><h2>Alle Camps</h2>
-        <p class="text-sm">Alle Camps anzeigen, aktuell auch noch jene, für die ich schon angemeldet bin.</p>
 
 <!-- Start: Dashboard -->
     <div class="flex flex-wrap">
