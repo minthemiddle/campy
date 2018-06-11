@@ -45,11 +45,11 @@
 
 <div>
   @foreach ($last as $l)
-<div class="flex lg:w-1/2">
-  <div class="flex-1">{{ $l->user->firstname }}</div>
+<div class="flex lg:w-1/2 mt-2 bg-white p-2">
+  <div class="flex-1 ">{{ $l->user->firstname }}</div>
   <div class="flex-1">{{ $l->user->lastname }}</div>
   <div class="flex-1">{{ $l->camp->shortcode }}</div>
-  <div class="flex-1">{{ $l->created_at->diffForHumans() }}</div>
+  <div class="flex-1 italic">{{ $l->created_at->diffForHumans() }}</div>
 </div>
 @endforeach
 </div>{{-- End: Latest --}}
