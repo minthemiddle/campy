@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Camp;
+use App\CampUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +26,11 @@ class CampAdminController extends Controller
         // $laptops = Camp::with(['users' => function ($query) {
         //         $query->where('laptop', '=', 'payer');
         //     }])->get();
+        $last = CampUser::all();
+        $last = $last->sortByDesc('created_at')->take(3);
 
         if ($user->role === 'admin') {
-            return view('admin.show', compact('camps', 'laptops'));
+            return view('admin.show', compact('camps', 'laptops', 'last'));
         } else {
             return 'Not authorized';
         }

@@ -40,6 +40,20 @@
 
 <!-- End: Dashboard -->
 
+{{-- Start: Latest --}}
+<h3 class="mt-4">Letzte Anmeldungen</h3>
+
+<div>
+  @foreach ($last as $l)
+<div class="flex lg:w-1/2 mt-2 bg-white p-2">
+  <div class="flex-1 ">{{ $l->user->firstname }}</div>
+  <div class="flex-1">{{ $l->user->lastname }}</div>
+  <div class="flex-1">{{ $l->camp->shortcode }}</div>
+  <div class="flex-1 italic">{{ $l->created_at->diffForHumans() }}</div>
+</div>
+@endforeach
+</div>{{-- End: Latest --}}
+
     <table class="table mt-4">
   <thead>
     <tr>
