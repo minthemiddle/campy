@@ -17,4 +17,9 @@ class CampUser extends Pivot
         return $this->belongsTo(User::class);
     }
 
+    public function camp()
+    {
+        return $this->belongsTo(Camp::class);
+    }
+
 }
