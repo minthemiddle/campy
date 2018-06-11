@@ -23,10 +23,7 @@
                                 <div>
                                    @auth
                                     <a href="/camps">Alle Camps</a> |
-                                    <a href="/mycamps">Meine Camps</a> |
-                                   @if ($user->role === 'admin')
-                                    <a href="/admin">Admin</a>
-                                   @endif
+                                    <a href="/mycamps">Meine Camps</a>
                                    @endauth 
                                 </div>
                             </div>
