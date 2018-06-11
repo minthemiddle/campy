@@ -12,6 +12,9 @@ class CampUser extends Pivot
             return 'Betreff: Igor K koe1805';
     }
 
-    // potentially 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
