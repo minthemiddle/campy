@@ -24,8 +24,9 @@ class CampUserController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $camp_user = Auth::user()->camps->sortBy('from');
-        return view('camp_user.index', compact('camp_user'));
+        return view('camp_user.index', compact('user', 'camp_user'));
     }
 
     /**
