@@ -16,8 +16,6 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
     $user = $faker->firstname;
-    $pw = bcrypt('secret');
-
     return [
         'username' => $user.random_int(0, 2),
         'firstname' => $user,
@@ -28,7 +26,6 @@ $factory->define(User::class, function (Faker $faker) {
         'birthdate' => date('2005-05-01'),
         'zip' => '10115',
         'gender' => 'f',
-        'password' => $pw,
         'mobile' => random_int(1,99999),
         'complete' => 0,
     ];

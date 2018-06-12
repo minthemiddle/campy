@@ -12,5 +12,6 @@ $factory->define(App\Camp::class, function (Faker $faker) {
         'registration_end' => $faker->dateTimeBetween($startDate = '+6months', $endDate = '+1years', $timezone = null),
         'from' => $faker->dateTimeBetween($startDate = '+6months', $endDate = '+1years', $timezone = null),
         'to' => $faker->dateTimeBetween($startDate = '+6months', $endDate = '+1years', $timezone = null),
+        'url' => '#',
     ];
 });
