@@ -16,7 +16,12 @@ class CampRegistrationTest extends DuskTestCase
     public function users_can_not_register_with_incomplete_profile()
     {
 
-        $user = factory(User::class)->create();
+        $user = factory(User::class)->create([
+            'firstname' => '',
+            'lastname' => '',
+            'zip' => '',
+            'mobile' => '',
+        ]);
         $camp = factory(Camp::class)->create();
 
 
