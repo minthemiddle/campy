@@ -57,52 +57,37 @@
 @endforeach
 </div>{{-- End: Latest --}}
 
-    <table class="table mt-4">
-  <thead>
-    <tr>
-      <th scope="col">Stadt</th>
-      <th scope="col">Von</th>
-      <th scope="col">Bis</th>
-      <th scope="col">Noch frei</th>
-      <th scope="col">Teilnehmer</th>
-{{--       <th scope="col">Laptops</th>
- --}}    </tr>
-  </thead>
-  <tbody>
     @foreach ($camps->sortBy('from') as $camp)
-    <tr>
-      <td class="font-bold">{{ $camp->city }}</th>
-      <td>{{ $camp->from->format('d.m.y') }}</td>
-      <td>{{ $camp->to->format('d.m.y') }}</td>
-      <td>{{ $camp->freeSpots }}</td>
-      <td>
-        <table class="overflow-x-auto">
+
+    <div class="text-xl mt-8 mb-2">{{ $camp->city }}</div>
+    
+    <table class="overflow-x-auto w-full">
           <thead>
-            <tr>
-              <th scope="col">Firstname</th>
-              <th scope="col">Lastname</th>
-              <th scope="col">Email</th>
-              <th scope="col">Status</th>
-              <th scope="col">Laptop</th>
-              <th scope="col">Beitrag</th>
+            <tr class="bg-grey-light">
+              <th scope="col" class="p-2">Firstname</th>
+              <th scope="col" class="p-2">Lastname</th>
+              <th scope="col" class="p-2">Email</th>
+              <th scope="col" class="p-2">Status</th>
+              <th scope="col" class="p-2">Laptop</th>
+              <th scope="col" class="p-2">Beitrag</th>
+              <th scope="col" class="p-2">Anmeldung</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($camp->users as $user)
-            <tr>
-            <td>{{ $user->firstname }}</td>
-            <td>{{ $user->lastname }}</td>
-            <td><a href="mailto:{{ $user->email }}?subject=Code+Design%20{{ $camp->city }}&body=Hallo%20{{ $user->firstname }}">{{ $user->email }}</a></td>
-            <td>{{ $user->pivot->status }}</td>
-            <td>{{ $user->pivot->laptop }}</td>
-            <td>{{ $user->pivot->contribution }}</td>
+            <tr class="bg-white">
+            <td class="p-2 bg-grey-lighter">{{ $user->firstname }}</td>
+            <td class="p-2">{{ $user->lastname }}</td>
+            <td class="p-2 bg-grey-lighter"><a href="mailto:{{ $user->email }}?subject=Code+Design%20{{ $camp->city }}&body=Hallo%20{{ $user->firstname }}">{{ $user->email }}</a></td>
+            <td class="p-2">{{ $user->pivot->status }}</td>
+            <td class="p-2 bg-grey-lighter">{{ $user->pivot->laptop }}</td>
+            <td class="p-2">{{ $user->pivot->contribution }}</td>
+            <td class="p-2 bg-grey-lighter italic">{{ $user->pivot->created_at->diffForHumans() }}</td>
             </tr>
             @endforeach
           </tbody>
         </table>
-      </td>
-{{--       <td>{{ $laptops }}</td>
- --}}    </tr>
+
     @endforeach
   </tbody>
 </table>
