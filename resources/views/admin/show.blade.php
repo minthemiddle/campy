@@ -74,7 +74,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($camp->users as $user)
+            @foreach ($camp->users->sortBy('firstname') as $user)
             <tr class="bg-white">
             <td class="p-2 bg-grey-lighter">{{ $user->firstname }}</td>
             <td class="p-2">{{ $user->lastname }}</td>
