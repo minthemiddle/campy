@@ -67,7 +67,7 @@
             <div class="relative">
               <select name="laptop" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                 <option value="own" selected>Nein, ich nutze eigenen Laptop</option>
-                <option value="payer">Ja, Ich zahle 75€ Unkostenbeitrag</option>
+                <option value="payer">Ja, Ich zahle 75€ Unkostenbeitrag extra für den Laptop</option>
                 <option value="waiver">Ich kann den Unkostenbeitrag nicht zahlen</option>
                 
             </select>
