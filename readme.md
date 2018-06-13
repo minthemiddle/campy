@@ -6,7 +6,8 @@ Campy is the system to manage all Code+Design camps. For now this means particip
 ### Get started
 
 - You need `PHP 7.1+`, a recent `MySQL` or `MariaDB` and `Node` to use this project locally
-- Clone this repository: `git clone git@github.com:CodeDesignInitiative/campy.git`
+- Create a Fork
+- Clone your Fork for lokal development
 - `cd campy`
 - `composer install`
 - `npm install`
