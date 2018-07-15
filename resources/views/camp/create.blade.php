@@ -55,7 +55,7 @@
             <label for="contribution">Unkostenbeitrag</label><br>
             <div class="relative">
               <select name="contribution" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
-                <option value="payer">Ich zahle 75€ Unkostenbeitrag</option>
+                <option value="payer">Ich zahle Unkostenbeitrag (siehe Webseite)</option>
                 <option value="waiver">Ich kann den Unkostenbeitrag gerade nicht zahlen</option>
             </select>
             <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg></div>
@@ -67,7 +67,7 @@
             <div class="relative">
               <select name="laptop" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                 <option value="own" selected>Nein, ich nutze eigenen Laptop</option>
-                <option value="payer">Ja, Ich zahle 75€ Unkostenbeitrag extra für den Laptop</option>
+                <option value="payer">Ja, Ich will Laptop ausleihen (Details siehe Webseite)</option>
                 <option value="waiver">Ich kann den Unkostenbeitrag nicht zahlen</option>
                 
             </select>
