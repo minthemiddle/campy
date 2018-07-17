@@ -20,7 +20,8 @@ class CampAdminController extends Controller
         $user = Auth::user();
 
         // get all camps with 
-        $camps = Camp::with('users')->get();
+        $camps = Camp::with('users')->where('camp_status','=','open')->get();
+
         // get number of required laptops
         // Camp::with('users')->where('')
         // $laptops = Camp::with(['users' => function ($query) {
