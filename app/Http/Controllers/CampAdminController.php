@@ -22,7 +22,6 @@ class CampAdminController extends Controller
         // get all camps with 
         $camps = Camp::with('users')->where('camp_status','=','open')->get();
 
-        $camps = \App\Camp::all()->where('camp_status','=','open')->sortBy('from');
         // get number of required laptops
         // Camp::with('users')->where('')
         // $laptops = Camp::with(['users' => function ($query) {
