@@ -158,11 +158,11 @@ class CampUserController extends Controller
             if (isset($reason)){
                 $status = 'cancelled';
 
-            $user->camps()->syncWithoutDetaching([$camp_registered => [
-                'status' => $status,
-                'comment' => $comment,
-                'reason_for_cancellation' => $reason
-            ]]);
+                $user->camps()->syncWithoutDetaching([$camp_registered => [
+                    'status' => $status,
+                    'comment' => $comment,
+                    'reason_for_cancellation' => $reason
+                ]]);
             }
 
             else {
