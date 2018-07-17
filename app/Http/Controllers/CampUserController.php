@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class CampUserController extends Controller
@@ -143,7 +144,7 @@ class CampUserController extends Controller
             'contribution' => 'required'
         ]);
 
-        $passedID = Str::after($request->path(), '/');
+        $passedID = $request->user;
         $loggedUser = Auth::user()->id;
 
         if ($passedID == $loggedUser) {
