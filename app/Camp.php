@@ -54,4 +54,9 @@ class Camp extends Model
             return $free;
     }
 
+    public function getOrderedLaptopsAttribute()
+    {
+        return DB::table('camp_user')->where([['camp_id','=', $this->id],['laptop','<>', 'own'],])->count();
+    }
+
 }
