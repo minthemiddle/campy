@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2802c8233aef937bb50ee65bd39b925e",
+    "content-hash": "8213c638150df71fcf8a2610e62b8618",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -634,6 +634,46 @@
                 "trusted proxy"
             ],
             "time": "2018-02-07T20:20:57+00:00"
+        },
+        {
+            "name": "gender-api/client",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markus-perl/gender-api-client.git",
+                "reference": "43db5d3609052bd4e189ad415e7e0d2ca367b2cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markus-perl/gender-api-client/zipball/43db5d3609052bd4e189ad415e7e0d2ca367b2cd",
+                "reference": "43db5d3609052bd4e189ad415e7e0d2ca367b2cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "GenderApi": "src",
+                    "GenderApiTest": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An easy to use API client for Gender-API.com",
+            "homepage": "https://github.com/markus-perl/gender-api-client",
+            "keywords": [
+                "gender api",
+                "gender of names",
+                "genderize"
+            ],
+            "time": "2018-05-28T09:43:09+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
