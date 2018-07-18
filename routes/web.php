@@ -27,5 +27,5 @@ Route::resource('users', 'UserController');
 Route::group(['middleware' => 'can:isAdmin'], function() {
     Route::get('/adminpanel/dashboard', 'CampAdminController@index');
     Route::resource('admin', 'CampAdminController');
-    // future adminpanel routes also should belong to the group
+    Route::get('/admin/campuser/confirm/{camp}/{user}', 'CampUserController@updateTransaction');
 });
