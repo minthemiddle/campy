@@ -29,7 +29,9 @@
                                    @auth
                                     <a href="/camps">Alle Camps</a> |
                                     <a href="/mycamps">Meine Camps</a>
+                                    @can('isAdmin')| <a href="/admin">Admin</a>@endcan
                                    @endauth 
+
                                 </div>
                             </div>
                         </div>
