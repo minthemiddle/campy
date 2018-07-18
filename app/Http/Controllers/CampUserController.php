@@ -6,6 +6,7 @@ use App\Camp;
 use App\CampUser;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -194,6 +195,23 @@ class CampUserController extends Controller
     {
         //
     }
+
+    public function updateTransaction(Request $request, $camp, $user){
+
+        $camp_user = \App\CampUser::where([
+                    ['user_id', '=', $user],
+                    ['camp_id', '=', $camp],
+                ])->first();
+
+        if ($camp_user->status == 'registered') {
+            $camp_user->status = 'confirmed';
+            $camp_user->save();
+
+        }
+    
+        return redirect()->back();
+    }
+
 }
 
 
