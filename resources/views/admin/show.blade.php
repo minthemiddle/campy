@@ -33,7 +33,7 @@
             <td class="p-2 border border-black border-2">{{ $camp->totalParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->totalGirls }}</td>
-            <td class="p-2 border border-black border-2">{{ $camp->totalLaptops }}</td>
+            <td class="p-2 border border-black border-2">{{ $camp->orderedlaptops }}</td>
         </tr>
     </tbody>
 </table>
