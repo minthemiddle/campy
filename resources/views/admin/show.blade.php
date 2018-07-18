@@ -7,7 +7,7 @@
     <div class="flex flex-wrap mt-4">
       @foreach ($camps->sortBy('from') as $camp)
   <div class="p-4 bg-white rounded-lg ml-2">
-    <div class="text-lg font-bold text-left mb-2">{{ $camp->city }} <span class="text-sm font-light tracking-wide ml-2">{{ $camp->shortcode }}</span></div>
+    <div class="text-lg font-bold text-left mb-2">{{ $camp->city }} <span class="text-sm font-light tracking-wide ml-2">{{ $camp->shortcode }} ({{ $camp->id }})</span></div>
     <div class="mb-2">
       {{ $camp->from->format('d.m.') }} – {{ $camp->to->format('d.m.y') }}
     </div>
@@ -59,7 +59,7 @@
 
     @foreach ($camps->sortBy('from') as $camp)
 
-    <div class="text-xl mt-8 mb-2">{{ $camp->city }}</div>
+    <div class="text-xl mt-8 mb-2">{{ $camp->city }} <span class="text-md text-grey-dark">(<code>#{{ $camp->id }}</code>)</span></div>
     
     <table class="overflow-x-auto w-full">
           <thead>
