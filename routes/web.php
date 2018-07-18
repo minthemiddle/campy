@@ -22,4 +22,10 @@ Route::get('mycamps/create/{camp}', 'CampUserController@create');
 Route::resource('mycamps', 'CampUserController');
 Route::resource('camps', 'CampController');
 Route::resource('users', 'UserController');
-Route::resource('admin', 'CampAdminController');
+
+
+Route::group(['middleware' => 'can:isAdmin'], function() {
+    Route::get('/adminpanel/dashboard', 'CampAdminController@index');
+    Route::resource('admin', 'CampAdminController');
+    // future adminpanel routes also should belong to the group
+});
