@@ -64,6 +64,7 @@
     <table class="overflow-x-auto w-full">
           <thead>
             <tr class="bg-grey-light">
+              <th scope="col" class="p-2">ID</th>
               <th scope="col" class="p-2">Firstname</th>
               <th scope="col" class="p-2">Lastname</th>
               <th scope="col" class="p-2">Email</th>
@@ -76,6 +77,7 @@
           <tbody>
             @foreach ($camp->users->sortBy('firstname') as $user)
             <tr class="bg-white">
+              <td class="p-2">{{ $user->id }}</td>
             <td class="p-2 bg-grey-lighter">{{ $user->firstname }}</td>
             <td class="p-2">{{ $user->lastname }}</td>
             <td class="p-2 bg-grey-lighter"><a href="mailto:{{ $user->email }}?subject=Code+Design%20{{ $camp->city }}&body=Hallo%20{{ $user->firstname }}">{{ $user->email }}</a></td>
