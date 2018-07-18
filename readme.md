@@ -30,8 +30,8 @@ Campy is the system to manage all Code+Design camps. For now this means particip
 - This is not a hard criteria right now, but will be in the future
 - All PR will be [manually tested locally](https://help.github.com/articles/checking-out-pull-requests-locally/) and only PR which do not break tests will be merged
 
-![Browserstack](resources/assets/img/browserstack.png?raw=true "BrowserStack")
-We use [BrowserStack's open source service]() to make sure that, no matter whichever browser or device young people use, they can register for the camps.
+![Browserstack](resources/assets/img/browserstack.png?raw=true "BrowserStack")  
+We use [BrowserStack's open source service](https://www.browserstack.com/open-source?ref=pricing) to make sure that, no matter whichever browser or device young people use, they can register for the camps.
 
 
 ## Contributing
