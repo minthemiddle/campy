@@ -86,7 +86,11 @@
         @endforeach
       </tbody>
     </table></div>
-                    
+                  
+    <div class="mt-4 text-center leading-loose"><p class="text-xl">Bei Fragen oder Problemen mit der Anmeldung?</p>
+    <p>Wir helfen gerne per <a href="mailto:hello@code.design">Mail</a> oder <a href="javascript:Smooch.open();">Live-Support</a></p>
+    </div>
+
                 </div>
             </div>
 
