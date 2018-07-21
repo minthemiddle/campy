@@ -73,7 +73,7 @@ class UserController extends Controller
             $user->complete = 1;
             $user->save();
 
-            return redirect('home');
+            return redirect('camps');
         } else {
             Session::flash('info', 'Denkste! Du kannst natürlich nur deine eigenen Daten ändern…');
             return redirect('home');
