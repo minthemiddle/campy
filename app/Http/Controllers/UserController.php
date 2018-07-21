@@ -98,7 +98,7 @@ class UserController extends Controller
             return redirect('camps');
         } else {
             Session::flash('info', 'Denkste! Du kannst natürlich nur deine eigenen Daten ändern…');
-            return redirect('home');
+            return redirect('profile');
         }
 
     }
