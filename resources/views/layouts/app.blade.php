@@ -41,7 +41,7 @@
                                 <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ url('/login') }}">Login</a>
                                 <a class="no-underline hover:underline text-grey-darker text-sm" href="{{ url('/register') }}">Registrieren</a>
                             @else
-                                <span class="text-grey-darker text-sm pr-4">{{ Auth::user()->name }}</span>
+                                <span class="text-grey-darkest text-sm pr-4"><a href="/profile">Dein Profil</a></span>
     
                                 <a href="{{ route('logout') }}"
                                     class="no-underline hover:underline text-grey-darker text-sm"
