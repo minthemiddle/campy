@@ -29,6 +29,11 @@ class Camp extends Model
         return $this->CampUser('not_cancelled')->count();
     }
 
+    public function getRegisteredParticipantsAttribute()
+    {
+        return $this->CampUser('registered')->count();
+    }
+
     public function getStatusAttribute()
     {
         if ($this->free_spots < 1){
@@ -51,6 +56,11 @@ class Camp extends Model
             case 'not_cancelled':
                 $camp_status = 'cancelled';
                 $camp_status_comparator = '<>';
+                break;
+
+            case 'registered':
+                $camp_status = 'registered';
+                $camp_status_comparator = '=';
                 break;
 
             case 'confirmed':
