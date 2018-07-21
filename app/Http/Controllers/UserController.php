@@ -21,6 +21,28 @@ class UserController extends Controller
     }
 
     /**
+     * Show the profile dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $diets = [
+            0 => 'normal',
+            1 => 'vegetarian',
+            2 => 'vegan',
+            3 => 'halal',
+            4 => 'glutenfree',
+            5 => 'lactosefree'
+        ];        
+        
+        $user = Auth::user();
+        $selected_diet = $user->diet;
+        return view('home',compact('user', 'selected_diet', 'diets'));
+    }
+
+
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
