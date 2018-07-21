@@ -13,7 +13,7 @@
 Auth::routes();
 
 // Route::get('/', function () { return view('welcome'); });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/teilnahmebedingungen', function() { return view('legal.terms');} );
 Route::get('/datenschutz', function() { return view('legal.privacy');} );
 

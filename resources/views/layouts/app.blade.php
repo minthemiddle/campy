@@ -24,7 +24,7 @@
             
                         <div class="p-4 pl-8 flex-1">
                             <div class="md:flex">
-                                <div class="mb-2 md:mb-0"><a href="{{ url('/home') }}" class="no-underline font-bold mr-4 font-blue-light">{{ config('app.name') }}</a></div>
+                                <div class="mb-2 md:mb-0"><a href="{{ url('/profile') }}" class="no-underline font-bold mr-4 font-blue-light">{{ config('app.name') }}</a></div>
                                 <div>
                                    @auth
                                     <a href="/camps">Alle Camps</a> |
@@ -41,7 +41,7 @@
                                 <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ url('/login') }}">Login</a>
                                 <a class="no-underline hover:underline text-grey-darker text-sm" href="{{ url('/register') }}">Registrieren</a>
                             @else
-                                <span class="text-grey-darker text-sm pr-4">{{ Auth::user()->name }}</span>
+                                <span class="text-grey-darkest text-sm pr-4"><a href="/profile">Dein Profil</a></span>
     
                                 <a href="{{ route('logout') }}"
                                     class="no-underline hover:underline text-grey-darker text-sm"
