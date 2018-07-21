@@ -31,18 +31,12 @@ class Camp extends Model
 
     public function getStatusAttribute()
     {
-            $registered = DB::table('camp_user')->where('camp_id', $this->id)->count();
-            $max = DB::table('camps')->where('id', $this->id)->first();
-            $max = $max->max;
-            $free = $max-$registered;
-
-            if ($free < 0) {
-                $free = 'Warteliste';
-            }
-            else {
-                $free = 'Freie Plätze';
-            }
-            return $free;
+        if ($this->free_spots < 1){
+            return 'Warteliste';
+        }
+        else {
+            return 'Freie Plätze';
+        }
     }
 
     public function getOrderedLaptopsAttribute()
