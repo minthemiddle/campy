@@ -88,19 +88,6 @@ class CampUserController extends Controller
 
         return redirect('/mycamps');
 
-        // that worked
-        // $user->camps()->attach($camp_registered, [
-        //     'status' => 'registered'
-        // ]);
-
-        // define camp
-        // $camp = Camp::find($request->campid)->first();
-        // a, heck whether camp in the future
-        // b, check whether still free spots
-        //
-        // if a + b = TRUE
-        // save personal data -> USER
-        // save camp registration -> CampUser
     }
 
     /**
@@ -213,15 +200,3 @@ class CampUserController extends Controller
     }
 
 }
-
-
-    // public function showmycamps()
-    // {
-    //     
-    // }
-
-    // public function savemycamps()
-    // {
-    //     // 
-    //     // if 
-    // }
