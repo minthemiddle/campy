@@ -20,16 +20,8 @@ class Camp extends Model
 
     public function getFreeSpotsAttribute()
     {
-            $registered = DB::table('camp_user')->where('camp_id', $this->id)->count();
-            $max = DB::table('camps')->where('id', $this->id)->first();
-            $max = $max->max;
-            $free = $max-$registered;
-
-            if ($free < 0) {
-                $free = 0;
-            }
-            // $free = "($max max, $free frei)";
-            return $free;
+            $registered = $this->CampUser('not_cancelled')->count();
+            return $this->max - $registered;
     }
 
     public function getTotalParticipantsAttribute()
