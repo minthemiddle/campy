@@ -28,3 +28,9 @@ $factory->define(User::class, function (Faker $faker) {
         'complete' => 0,
     ];
 });
+
+$factory->state(User::class, 'complete_major', [
+    'birthdate' => Carbon::parse('-19years')->format('Y-m-d'),
+    'mobile' => '0123456',
+    'zip' => '10115',
+]);
