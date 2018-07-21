@@ -26,8 +26,7 @@ class Camp extends Model
 
     public function getTotalParticipantsAttribute()
     {
-            $registered = DB::table('camp_user')->where('camp_id', $this->id)->count();
-            return $registered;
+        return $this->CampUser('not_cancelled')->count();
     }
 
     public function getStatusAttribute()
