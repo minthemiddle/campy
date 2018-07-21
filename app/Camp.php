@@ -46,7 +46,7 @@ class Camp extends Model
 
     public function getOrderedLaptopsAttribute()
     {
-        return CampUser('not_cancelled', 'laptop', '<>', 'own')->count();
+        return $this->CampUser('not_cancelled', 'laptop', '<>', 'own')->count();
     }
 
     private function CampUser($status, $column = null, $comparator = null, $value = null) {
