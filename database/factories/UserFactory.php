@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 
 /*
@@ -23,10 +24,10 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'), // secret
         'remember_token' => str_random(10),
-        'birthdate' => date('2005-05-01'),
         'zip' => '10115',
         'gender' => 'f',
         'mobile' => random_int(1,99999),
+        'birthdate' => Carbon::parse('-15years')->format('Y-m-d'),
         'complete' => 0,
     ];
 });
