@@ -70,7 +70,7 @@ class CampUserController extends Controller
 
         $camp = Camp::find($camp_registered);
 
-        if ($camp->free_spots <= 0) {
+        if ($camp->free_spots < 1) {
             $status = 'waiting';
         }
         else {
