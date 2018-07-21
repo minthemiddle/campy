@@ -53,6 +53,11 @@ class Camp extends Model
                 $camp_status_comparator = '<>';
                 break;
 
+            case 'registered':
+                $camp_status = 'registered';
+                $camp_status_comparator = '=';
+                break;
+
             case 'confirmed':
                 $camp_status = 'confirmed';
                 $camp_status_comparator = '=';
