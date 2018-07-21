@@ -29,6 +29,11 @@ class Camp extends Model
         return $this->CampUser('not_cancelled')->count();
     }
 
+    public function getRegisteredParticipantsAttribute()
+    {
+        return $this->CampUser('registered')->count();
+    }
+
     public function getStatusAttribute()
     {
         if ($this->free_spots < 1){
