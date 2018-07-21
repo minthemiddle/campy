@@ -39,7 +39,7 @@ class CampUserController extends Controller
     public function create(Camp $camp = null)
     {
         $user = Auth::user();
-        $age = Auth::user()->age;
+        $age = $user->age;
         return view('camp.create', compact('user', 'camp', 'age'));
     }
 
