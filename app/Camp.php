@@ -59,4 +59,48 @@ class Camp extends Model
         return DB::table('camp_user')->where([['camp_id','=', $this->id],['laptop','<>', 'own'],])->count();
     }
 
+    private function CampUser($status, $column = null, $comparator = null, $value = null) {
+        
+        switch ($status) {
+
+            case 'not_cancelled':
+                $camp_status = 'cancelled';
+                $camp_status_comparator = '<>';
+                break;
+
+            case 'confirmed':
+                $camp_status = 'confirmed';
+                $camp_status_comparator = '=';
+                break;
+
+            case 'cancelled':
+                $camp->status = 'cancelled';
+                $camp_status_comparator = '=';
+                break;
+            
+            default:
+                $camp_status = 'cancelled';
+                $camp_status_comparator = '<>';
+                break;
+        }
+
+        if (!isset($column)){
+          $options = [
+            ['status', $camp_status_comparator, $camp_status],
+            ['camp_id','=', $this->id],
+        ];  
+        }
+
+        else {
+          $options = [
+            ['status', $camp_status_comparator, $camp_status],
+            ['camp_id','=', $this->id],
+            [$column, $comparator, $value],
+        ];  
+        }
+        
+
+        return DB::table('camp_user')->where($options);
+    }
+
 }
