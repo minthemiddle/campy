@@ -46,7 +46,7 @@ class Camp extends Model
 
     public function getOrderedLaptopsAttribute()
     {
-        return DB::table('camp_user')->where([['camp_id','=', $this->id],['laptop','<>', 'own'],])->count();
+        return CampUser('not_cancelled', 'laptop', '<>', 'own')->count();
     }
 
     private function CampUser($status, $column = null, $comparator = null, $value = null) {
