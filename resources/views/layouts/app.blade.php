@@ -24,7 +24,7 @@
             
                         <div class="p-4 pl-8 flex-1">
                             <div class="md:flex">
-                                <div class="mb-2 md:mb-0"><a href="{{ url('/home') }}" class="no-underline font-bold mr-4 font-blue-light">{{ config('app.name') }}</a></div>
+                                <div class="mb-2 md:mb-0"><a href="{{ url('/profile') }}" class="no-underline font-bold mr-4 font-blue-light">{{ config('app.name') }}</a></div>
                                 <div>
                                    @auth
                                     <a href="/camps">Alle Camps</a> |
