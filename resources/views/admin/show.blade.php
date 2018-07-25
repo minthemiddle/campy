@@ -85,6 +85,7 @@
               <th scope="col" class="p-2">Beitrag</th>
               <th scope="col" class="p-2">Anmeldung</th>
               <th scope="col" class="p-2">💰</th>
+              <th scope="col" class="p-2">L💰</th>
             </tr>
           </thead>
           <tbody>
@@ -99,6 +100,7 @@
             <td class="p-2">{{ $user->pivot->contribution }}</td>
             <td class="p-2 bg-grey-lighter italic">{{ $user->pivot->created_at->diffForHumans() }}</td>
             <td class="p-2">@if ($user->pivot->status == 'registered')<a class="text-sm no-underline" href="/admin/campuser/confirm/{{ $camp->id }}/{{ $user->id }}">☑️</a>@endif</td>
+            <td class="p-2">@if ($user->pivot->laptop == 'payer')<a class="text-sm no-underline" href="/admin/campuser/confirm_laptop/{{ $camp->id }}/{{ $user->id }}">☑️</a>@endif</td>
 
             </tr>
             @endforeach

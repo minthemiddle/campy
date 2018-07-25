@@ -199,4 +199,20 @@ class CampUserController extends Controller
         return redirect()->back();
     }
 
+    public function updateLaptopTransaction(Request $request, $camp, $user){
+
+        $camp_user = \App\CampUser::where([
+                    ['user_id', '=', $user],
+                    ['camp_id', '=', $camp],
+                ])->first();
+
+        if ($camp_user->laptop == 'payer') {
+            $camp_user->laptop = 'paid';
+            $camp_user->save();
+
+        }
+    
+        return redirect()->back();
+    }
+
 }
