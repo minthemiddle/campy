@@ -15,6 +15,9 @@
     <thead>
         <tr>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
+              <div>To</div>
+            </td>
+            <td class="p-2 border border-black border-2 bg-grey-lighter">
               <div>Fr</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
@@ -30,7 +33,7 @@
     </thead>
     <tbody>
         <tr>
-            <td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
+            <td class="p-2 border border-black border-2">{{ $camp->max }}</td><td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->RegisteredParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->ConfirmedParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->orderedlaptops }}</td>
