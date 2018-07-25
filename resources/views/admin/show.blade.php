@@ -15,13 +15,13 @@
     <thead>
         <tr>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
+              <div>Fr</div>
+            </td>
+            <td class="p-2 border border-black border-2 bg-grey-lighter">
               <div>R</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
               <div>Co</div>
-            </td>
-            <td class="p-2 border border-black border-2 bg-grey-lighter">
-              <div>Fr</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
               <div>La</div>
@@ -30,9 +30,9 @@
     </thead>
     <tbody>
         <tr>
+            <td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->RegisteredParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->ConfirmedParticipants }}</td>
-            <td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->orderedlaptops }}</td>
         </tr>
     </tbody>
