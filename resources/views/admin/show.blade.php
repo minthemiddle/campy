@@ -18,7 +18,7 @@
               <div>R</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-square"><title>Frei</title><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+              <div>Co</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><title>Frei</title><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
@@ -31,7 +31,7 @@
     <tbody>
         <tr>
             <td class="p-2 border border-black border-2">{{ $camp->RegisteredParticipants }}</td>
-            <td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
+            <td class="p-2 border border-black border-2">{{ $camp->ConfirmedParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->totalGirls }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->orderedlaptops }}</td>
         </tr>
