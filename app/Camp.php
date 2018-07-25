@@ -34,6 +34,11 @@ class Camp extends Model
         return $this->CampUser('registered')->count();
     }
 
+    public function getConfirmedParticipantsAttribute()
+    {
+        return $this->CampUser('confirmed')->count();
+    }
+
     public function getStatusAttribute()
     {
         if ($this->free_spots < 1){
