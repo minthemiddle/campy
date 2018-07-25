@@ -28,4 +28,5 @@ Route::group(['middleware' => 'can:isAdmin'], function() {
     Route::get('/adminpanel/dashboard', 'CampAdminController@index');
     Route::resource('admin', 'CampAdminController');
     Route::get('/admin/campuser/confirm/{camp}/{user}', 'CampUserController@updateTransaction');
+    Route::get('/admin/campuser/confirm_laptop/{camp}/{user}', 'CampUserController@updateLaptopTransaction');
 });
