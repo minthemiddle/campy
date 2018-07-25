@@ -27,6 +27,9 @@
               <div>Co</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
+              <div>M#</div>
+            </td>
+            <td class="p-2 border border-black border-2 bg-grey-lighter">
               <div>La</div>
             </td>
             <td class="p-2 border border-black border-2 bg-grey-lighter">
@@ -43,6 +46,7 @@
             <td class="p-2 border border-black border-2">{{ $camp->max }}</td><td class="p-2 border border-black border-2">{{ $camp->freeSpots }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->RegisteredParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->ConfirmedParticipants }}</td>
+            <td class="p-2 border border-black border-2">{{ $camp->female_participants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->orderedlaptops }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->contribution }}€</td>
             <td class="p-2 border border-black border-2">{{ $camp->laptop }}€</td>
