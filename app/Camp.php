@@ -49,6 +49,16 @@ class Camp extends Model
         }
     }
 
+    public function getFemaleParticipantsAttribute()
+    {
+        return $this->users()->where('gender', '=', 'f')->count();
+    }
+
+    public function getFemaleRatioAttribute()
+    {
+        return round($this->female_participants * 100 / $this->users()->count());
+    }
+
     public function getOrderedLaptopsAttribute()
     {
         return $this->CampUser('not_cancelled', 'laptop', '<>', 'own')->count();
