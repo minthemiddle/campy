@@ -207,7 +207,7 @@ class CampUserController extends Controller
                 ])->first();
 
         if ($camp_user->laptop == 'payer') {
-            $camp_user->status = 'paid';
+            $camp_user->laptop = 'paid';
             $camp_user->save();
 
         }
