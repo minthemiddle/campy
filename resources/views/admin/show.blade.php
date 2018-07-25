@@ -29,6 +29,10 @@
             <td class="p-2 border border-black border-2 bg-grey-lighter">
               <div>La</div>
             </td>
+            <td class="p-2 border border-black border-2 bg-grey-lighter">
+              <div>C€</div>
+            </td>
+
         </tr>
     </thead>
     <tbody>
@@ -37,6 +41,7 @@
             <td class="p-2 border border-black border-2">{{ $camp->RegisteredParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->ConfirmedParticipants }}</td>
             <td class="p-2 border border-black border-2">{{ $camp->orderedlaptops }}</td>
+            <td class="p-2 border border-black border-2">{{ $camp->contribution }}€</td>
         </tr>
     </tbody>
 </table>
