@@ -42,7 +42,7 @@ class FillGender extends Command
     public function handle()
     {
         
-        $genderless_users = App\User::where('gender','=',null);
+        $genderless_users = User::where('gender','=',null);
 
         $apiClient = new GenderApiClient(env('GENDER_API_KEY'));
 
