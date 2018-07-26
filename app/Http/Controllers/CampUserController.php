@@ -183,7 +183,9 @@ class CampUserController extends Controller
         //
     }
 
-    public function updateTransaction(Request $request, $camp, $user){
+    public function updateTransaction(Request $request, $camp, $user, CampUser $campuser){
+
+        $userProfile = User::where('id','=',$user)->first();
 
         $camp_user = \App\CampUser::where([
                     ['user_id', '=', $user],
