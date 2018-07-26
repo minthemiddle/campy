@@ -197,7 +197,19 @@ class CampUserController extends Controller
             $camp_user->save();
 
         }
+
+        if ($userProfile->age < 18)
+        {
+           Mail::to($userProfile->email)
+            ->cc($userProfile->guardian_email)
+            ->send(new ContributionConfirmed($camp)); 
+        }
+        else {
+           Mail::to($userProfile->email)
+            ->send(new ContributionConfirmed($camp)); 
+        }
     
+        
         return redirect()->back();
     }
 
