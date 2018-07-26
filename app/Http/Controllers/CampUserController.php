@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Camp;
 use App\CampUser;
+use App\Mail\ContributionConfirmed;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -183,7 +185,9 @@ class CampUserController extends Controller
         //
     }
 
-    public function updateTransaction(Request $request, $camp, $user){
+    public function updateTransaction(Request $request, $camp, $user, CampUser $campuser){
+
+        $userProfile = User::where('id','=',$user)->first();
 
         $camp_user = \App\CampUser::where([
                     ['user_id', '=', $user],
@@ -195,7 +199,19 @@ class CampUserController extends Controller
             $camp_user->save();
 
         }
+
+        if ($userProfile->age < 18)
+        {
+           Mail::to($userProfile->email)
+            ->cc($userProfile->guardian_email)
+            ->send(new ContributionConfirmed($camp)); 
+        }
+        else {
+           Mail::to($userProfile->email)
+            ->send(new ContributionConfirmed($camp)); 
+        }
     
+        
         return redirect()->back();
     }
 
