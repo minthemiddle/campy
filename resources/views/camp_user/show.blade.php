@@ -17,7 +17,7 @@
 
 @if ($camp->pivot->status == 'registered' and $camp->pivot->contribution == 'payer')
 
-<p>Nächster Schritt: Um deine Anmeldung zu bestätigen, tätige bitte folgende Überweisung(en) bis zum <em>{{ $camp->from->subMonth(1)->format('d.m.Y') }}</em> wie folgt.</p>
+<p>Nächster Schritt: Um deine Anmeldung zu bestätigen, tätige bitte folgende Überweisung(en) so schnell möglich.</p>
 <p class="text-sm">Bitte: Unbedingt den Verwendungszweck 1:1 kopieren. Abweichungen verursachen extrem viel unnötige manuelle Arbeit.</p>
 
 
