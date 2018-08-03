@@ -34,7 +34,7 @@ $factory->state(User::class, 'manual', [
     'firstname' => 'manuell',
     'lastname' => 'manuell',
     'email' => 'manuell@manuell.test',
-    'password' => 'secret',
+    'password' => bcrypt('secret'),
     'birthdate' => Carbon::parse('-15years')->format('Y-m-d'),
     'complete' => 0,
 ]);
