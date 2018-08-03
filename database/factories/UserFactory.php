@@ -28,3 +28,13 @@ $factory->define(User::class, function (Faker $faker) {
         'complete' => 0,
     ];
 });
+
+$factory->state(User::class, 'manual', [
+    'username' => 'manuell',
+    'firstname' => 'manuell',
+    'lastname' => 'manuell',
+    'email' => 'manuell@manuell.test',
+    'password' => 'secret',
+    'birthdate' => Carbon::parse('-15years')->format('Y-m-d'),
+    'complete' => 0,
+]);
