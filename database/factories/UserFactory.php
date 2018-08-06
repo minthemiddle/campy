@@ -29,6 +29,11 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
+$factory->state(User::class, 'admin', [
+    'role' => 'admin',
+]);
+
+
 $factory->state(User::class, 'manual', [
     'username' => 'manuell',
     'firstname' => 'manuell',
