@@ -9,6 +9,9 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+
+    use DatabaseMigrations;
+
     /** @test */
     public function non_registered_cannot_view_admin_dashboard()
     {
