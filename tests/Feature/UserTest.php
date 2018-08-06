@@ -16,4 +16,12 @@ class UserTest extends TestCase
         $response->assertStatus(302);
         $response->assertLocation('/login');
     }
+
+    /** @test */
+    public function non_admin_cannot_view_admin_dashboard()
+    {
+        $user = factory('App\User')->make();
+        $response = $this->actingAs($user)->get('/admin');
+        $response->assertStatus(403);
+    }
 }
