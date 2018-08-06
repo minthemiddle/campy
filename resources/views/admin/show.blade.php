@@ -94,6 +94,7 @@
               <th scope="col" class="p-2">Lastname</th>
               <th scope="col" class="p-2">Email</th>
               <th scope="col" class="p-2">Alter</th>
+              <th scope="col" class="p-2">Ernährung</th>
               <th scope="col" class="p-2">Status</th>
               <th scope="col" class="p-2">Laptop</th>
               <th scope="col" class="p-2">Beitrag</th>
@@ -111,6 +112,7 @@
             <td class="p-2">{{ $user->lastname }}</td>
             <td class="p-2 bg-grey-lighter"><a href="mailto:{{ $user->email }}?subject=Code+Design%20{{ $camp->city }}&body=Hallo%20{{ $user->firstname }}">{{ $user->email }}</a></td>
             <td class="p-2 bg-grey-lighter">{{ $user->age }}</td>
+            <td class="p-2 bg-grey-lighter">{{ $user->diet }}</td>
             <td class="p-2">{{ $user->pivot->status }}</td>
             <td class="p-2 bg-grey-lighter">{{ $user->pivot->laptop }}</td>
             <td class="p-2">{{ $user->pivot->contribution }}</td>
