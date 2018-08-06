@@ -24,4 +24,12 @@ class UserTest extends TestCase
         $response = $this->actingAs($user)->get('/admin');
         $response->assertStatus(403);
     }
+
+    /** @test */
+    public function admin_can_view_admin_dashboard()
+    {
+        $user = factory('App\User')->states('admin')->create();
+        $response = $this->actingAs($user)->get('/admin');
+        $response->assertStatus(200);
+    }
 }
