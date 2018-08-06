@@ -9,4 +9,11 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+    /** @test */
+    public function non_registered_cannot_view_admin_dashboard()
+    {
+        $response = $this->get('/admin');
+        $response->assertStatus(302);
+        $response->assertLocation('/login');
+    }
 }
