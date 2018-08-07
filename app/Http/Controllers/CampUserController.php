@@ -51,7 +51,7 @@ class CampUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Camp $camp, User $user)
+    public function store(Request $request, Camp $camp)
     {
         $this->validate($request, [
             'firstname' => 'required',
@@ -62,7 +62,7 @@ class CampUserController extends Controller
             'contribution' => 'required'
         ]);
 
-        $user = User::find($request->user);
+        $user = Auth::user();
         $camp_registered = $request->camp;
         $tos = $request->tos;
         $consent = $request->consent;
@@ -89,7 +89,6 @@ class CampUserController extends Controller
         ]]);
 
         return redirect('/mycamps');
-
     }
 
     /**
