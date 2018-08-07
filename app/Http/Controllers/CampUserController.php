@@ -40,6 +40,13 @@ class CampUserController extends Controller
      */
     public function create(Camp $camp = null)
     {
+        if(is_null($camp)) {
+            return redirect('/mycamps');
+        }
+        $campuser = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->first();
+        if(is_null($campuser) == false) {
+            return redirect('/mycamps');
+        }
         $user = Auth::user();
         $age = $user->age;
         return view('camp.create', compact('user', 'camp', 'age'));
@@ -51,8 +58,11 @@ class CampUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Camp $camp)
+    public function store(Request $request, Camp $camp = null)
     {
+        if(is_null($camp)) {
+            return redirect('/mycamps');
+        }
         $campuser = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->first();
         if(is_null($campuser) == false) {
             return redirect('/mycamps');
