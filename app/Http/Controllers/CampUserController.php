@@ -53,6 +53,10 @@ class CampUserController extends Controller
      */
     public function store(Request $request, Camp $camp)
     {
+        $campuser = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->first();
+        if(is_null($campuser) == false) {
+            return redirect('/mycamps');
+        }
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
