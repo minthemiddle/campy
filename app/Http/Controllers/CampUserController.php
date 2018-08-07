@@ -40,11 +40,11 @@ class CampUserController extends Controller
      */
     public function create(Camp $camp)
     {
-        if($camp->id == 0) {
+        if(is_null($camp)) {
             return redirect('/mycamps');
         }
-        $campuser = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->first();
-        if(is_null($campuser) == false) {
+        $campuser_exists = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->exists();
+        if($campuser_exists) {
             return redirect('/mycamps');
         }
         $user = Auth::user();
@@ -64,8 +64,8 @@ class CampUserController extends Controller
         if(is_null($camp)) {
             return redirect('/mycamps');
         }
-        $campuser = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->first();
-        if(is_null($campuser) == false) {
+        $campuser_exists = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->exists();
+        if($campuser_exists) {
             return redirect('/mycamps');
         }
         $this->validate($request, [
