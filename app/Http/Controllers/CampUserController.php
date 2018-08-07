@@ -38,8 +38,15 @@ class CampUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Camp $camp = null)
+    public function create(Camp $camp)
     {
+        if(is_null($camp)) {
+            return redirect('/mycamps');
+        }
+        $campuser_exists = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->exists();
+        if($campuser_exists) {
+            return redirect('/mycamps');
+        }
         $user = Auth::user();
         $age = $user->age;
         return view('camp.create', compact('user', 'camp', 'age'));
@@ -51,26 +58,28 @@ class CampUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Camp $camp, User $user)
+    public function store(Request $request)
     {
+        $camp = Camp::find($request->camp);
+        if(is_null($camp)) {
+            return redirect('/mycamps');
+        }
+        $campuser_exists = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->exists();
+        if($campuser_exists) {
+            return redirect('/mycamps');
+        }
         $this->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
             'tos' => 'required',
             'consent' => 'required',
             'laptop' => 'required',
             'contribution' => 'required'
         ]);
 
-        $user = User::find($request->user);
-        $camp_registered = $request->camp;
         $tos = $request->tos;
         $consent = $request->consent;
         $laptop = $request->laptop;
         $contribution = $request->contribution;
         $comment = $request->comment;
-
-        $camp = Camp::find($camp_registered);
 
         if ($camp->free_spots < 1) {
             $status = 'waiting';
@@ -79,7 +88,7 @@ class CampUserController extends Controller
             $status = 'registered';
         }
 
-        $user->camps()->syncWithoutDetaching([$camp_registered => [
+        Auth::user()->camps()->syncWithoutDetaching([$camp->id => [
             'status' => $status,
             'consent' => $consent,
             'tos' => $tos,
@@ -89,7 +98,6 @@ class CampUserController extends Controller
         ]]);
 
         return redirect('/mycamps');
-
     }
 
     /**
