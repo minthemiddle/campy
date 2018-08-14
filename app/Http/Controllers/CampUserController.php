@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Camp;
 use App\CampUser;
+use App\Mail\ContributionConfirmed;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class CampUserController extends Controller
@@ -34,10 +38,17 @@ class CampUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Camp $camp = null)
+    public function create(Camp $camp)
     {
+        if(is_null($camp)) {
+            return redirect('/mycamps');
+        }
+        $campuser_exists = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->exists();
+        if($campuser_exists) {
+            return redirect('/mycamps');
+        }
         $user = Auth::user();
-        $age = Auth::user()->age;
+        $age = $user->age;
         return view('camp.create', compact('user', 'camp', 'age'));
     }
 
@@ -47,35 +58,37 @@ class CampUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Camp $camp, User $user)
+    public function store(Request $request)
     {
+        $camp = Camp::find($request->camp);
+        if(is_null($camp)) {
+            return redirect('/mycamps');
+        }
+        $campuser_exists = CampUser::where('user_id', Auth::id())->where('camp_id', $camp->id)->exists();
+        if($campuser_exists) {
+            return redirect('/mycamps');
+        }
         $this->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
             'tos' => 'required',
             'consent' => 'required',
             'laptop' => 'required',
             'contribution' => 'required'
         ]);
 
-        $user = User::find($request->user);
-        $camp_registered = $request->camp;
         $tos = $request->tos;
         $consent = $request->consent;
         $laptop = $request->laptop;
         $contribution = $request->contribution;
         $comment = $request->comment;
 
-        $camp = Camp::find($camp_registered);
-
-        if ($camp->free_spots <= 0) {
+        if ($camp->free_spots < 1) {
             $status = 'waiting';
         }
         else {
             $status = 'registered';
         }
 
-        $user->camps()->syncWithoutDetaching([$camp_registered => [
+        Auth::user()->camps()->syncWithoutDetaching([$camp->id => [
             'status' => $status,
             'consent' => $consent,
             'tos' => $tos,
@@ -85,20 +98,6 @@ class CampUserController extends Controller
         ]]);
 
         return redirect('/mycamps');
-
-        // that worked
-        // $user->camps()->attach($camp_registered, [
-        //     'status' => 'registered'
-        // ]);
-
-        // define camp
-        // $camp = Camp::find($request->campid)->first();
-        // a, heck whether camp in the future
-        // b, check whether still free spots
-        //
-        // if a + b = TRUE
-        // save personal data -> USER
-        // save camp registration -> CampUser
     }
 
     /**
@@ -143,7 +142,7 @@ class CampUserController extends Controller
             'contribution' => 'required'
         ]);
 
-        $passedID = Str::after($request->path(), '/');
+        $passedID = $request->user;
         $loggedUser = Auth::user()->id;
 
         if ($passedID == $loggedUser) {
@@ -157,11 +156,11 @@ class CampUserController extends Controller
             if (isset($reason)){
                 $status = 'cancelled';
 
-            $user->camps()->syncWithoutDetaching([$camp_registered => [
-                'status' => $status,
-                'comment' => $comment,
-                'reason_for_cancellation' => $reason
-            ]]);
+                $user->camps()->syncWithoutDetaching([$camp_registered => [
+                    'status' => $status,
+                    'comment' => $comment,
+                    'reason_for_cancellation' => $reason
+                ]]);
             }
 
             else {
@@ -193,16 +192,51 @@ class CampUserController extends Controller
     {
         //
     }
+
+    public function updateTransaction(Request $request, $camp, $user, CampUser $campuser){
+
+        $userProfile = User::where('id','=',$user)->first();
+
+        $camp_user = \App\CampUser::where([
+                    ['user_id', '=', $user],
+                    ['camp_id', '=', $camp],
+                ])->first();
+
+        if ($camp_user->status == 'registered') {
+            $camp_user->status = 'confirmed';
+            $camp_user->save();
+
+        }
+
+        if ($userProfile->age < 18)
+        {
+           Mail::to($userProfile->email)
+            ->cc($userProfile->guardian_email)
+            ->send(new ContributionConfirmed($camp)); 
+        }
+        else {
+           Mail::to($userProfile->email)
+            ->send(new ContributionConfirmed($camp)); 
+        }
+    
+        
+        return redirect()->back();
+    }
+
+    public function updateLaptopTransaction(Request $request, $camp, $user){
+
+        $camp_user = \App\CampUser::where([
+                    ['user_id', '=', $user],
+                    ['camp_id', '=', $camp],
+                ])->first();
+
+        if ($camp_user->laptop == 'payer') {
+            $camp_user->laptop = 'paid';
+            $camp_user->save();
+
+        }
+    
+        return redirect()->back();
+    }
+
 }
-
-
-    // public function showmycamps()
-    // {
-    //     
-    // }
-
-    // public function savemycamps()
-    // {
-    //     // 
-    //     // if 
-    // }

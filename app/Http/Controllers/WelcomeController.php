@@ -13,7 +13,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $camps = \App\Camp::all()->sortBy('from');
+        $camps = \App\Camp::all()->where('camp_status','=','open')->sortBy('from');
         return view('welcome',compact('camps'));
     }
 }

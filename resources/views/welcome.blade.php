@@ -12,13 +12,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script>
+        !function(e,n,t,r){
+            function o(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var t=n.getElementsByTagName("script")[0],r=n.createElement("script");r.async=!0,r.src=e.url,t.parentNode.insertBefore(r,t)}}catch(e){}}var s,p,a,i=[],c=[];e[t]={init:function(){s=arguments;var e={then:function(n){return c.push({type:"t",next:n}),e},catch:function(n){return c.push({type:"c",next:n}),e}};return e},on:function(){i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(n){if(delete e.__onWebMessengerHostReady__,e[t]=n,s)for(var r=n.init.apply(n,s),o=0;o<c.length;o++){var u=c[o];r="t"===u.type?r.then(u.next):r.catch(u.next)}p&&n.render.apply(n,p),a&&n.destroy.apply(n,a);for(o=0;o<i.length;o++)n.on.apply(n,i[o])};var u=new XMLHttpRequest;u.addEventListener("load",o),u.open("GET","https://"+r+".webloader.smooch.io/",!0),u.responseType="json",u.send()
+        }(window,document,"Smooch","596dbeee3154052401f51a2c");
+    </script>
 </head>
 <body class="bg-brand-lightest font-sans font-normal">
     <div class="flex flex-col">
         @if(Route::has('login'))
             <div class="absolute pin-t pin-r mt-4 mr-4">
                 @auth
-                    <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm font-normal text-brand-dark uppercase">Home</a>
+                    <a href="{{ url('/profile') }}" class="no-underline hover:underline text-sm font-normal text-brand-dark uppercase">Profil</a>
                 @else
                     <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-brand-dark uppercase pr-6">Login</a>
                     <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-brand-dark uppercase">Registrieren</a>
@@ -81,7 +86,11 @@
         @endforeach
       </tbody>
     </table></div>
-                    
+                  
+    <div class="mt-4 text-center leading-loose"><p class="text-xl">Bei Fragen oder Problemen mit der Anmeldung?</p>
+    <p>Wir helfen gerne per <a href="mailto:hello@code.design">Mail</a> oder <a href="javascript:Smooch.open();">Live-Support</a></p>
+    </div>
+
                 </div>
             </div>
 
@@ -89,6 +98,20 @@
         
 
     </div>
-    
+    <script>
+    Smooch.init({
+        appId: '596dbeee3154052401f51a2c',
+        locale: 'de-DE',
+        customText: {
+            headerText: 'Wie können wir helfen?',
+            inputPlaceholder: 'Schreib uns…',
+            introAppText: 'Schreib uns hier oder auf Facebook.',
+            introductionText: 'Wir helfen dir bei allen Fragen zur und Problemen mit der Camp-Anmeldung.',
+            sendButtonText: 'Abschicken'
+        }
+    }).then(function() {
+        // Your code after init is complete
+    });
+</script>
 </body>
 </html>
