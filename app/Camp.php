@@ -56,7 +56,13 @@ class Camp extends Model
 
     public function getFemaleRatioAttribute()
     {
-        return round($this->female_participants * 100 / $this->users()->count());
+        if ($this->users()->count() == 0){
+            return 0;
+        }
+        else {
+            return round($this->female_participants * 100 / $this->users()->count());
+        }
+        
     }
 
     public function getOrderedLaptopsAttribute()
