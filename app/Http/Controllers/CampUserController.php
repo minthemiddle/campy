@@ -239,4 +239,14 @@ class CampUserController extends Controller
         return redirect()->back();
     }
 
+    public function cancelParticipation(Request $request, $camp, $user){
+        $camp_user = \App\CampUser::where([
+                    ['user_id', '=', $user],
+                    ['camp_id', '=', $camp],
+                ])->first();
+        $camp_user->status = 'cancelled';
+        $camp_user->save();
+        return back();
+    }
+
 }
