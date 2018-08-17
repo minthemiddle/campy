@@ -67,7 +67,8 @@ class CampAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $camp = Camp::with('users')->findOrFail($id);
+        return view('admin.single', compact('camp'));
     }
 
     /**
