@@ -97,4 +97,10 @@ class CampAdminController extends Controller
     {
         //
     }
+
+    public function export($id)
+    {
+        $camp = Camp::with('users')->findOrFail($id);
+        return view('admin.export', compact('camp'));
+    }
 }
