@@ -15,7 +15,7 @@ class Camp extends Model
     {
         return $this->belongsToMany(User::class)
             ->withTimestamps()
-            ->withPivot('status', 'contribution', 'laptop', 'tos', 'consent', 'comment');
+            ->withPivot('status', 'contribution', 'laptop', 'tos', 'consent', 'comment', 'admin_comment');
     }
 
     public function getFreeSpotsAttribute()
