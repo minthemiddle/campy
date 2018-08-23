@@ -56,7 +56,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Camp::class)
             ->withTimestamps()
-            ->withPivot('status', 'contribution', 'laptop', 'needs_laptop', 'tos', 'consent', 'comment', 'admin_comment', 'reason_for_cancellation');
+            ->withPivot('status', 'contribution', 'laptop', 'tos', 'consent', 'comment', 'admin_comment', 'reason_for_cancellation');
     }
 
 }
