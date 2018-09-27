@@ -87,14 +87,6 @@ let colors = {
   "green-lighter": "#a2f5bf",
   "green-lightest": "#e3fcec",
 
-  "teal-darkest": "#0d3331",
-  "teal-darker": "#20504f",
-  "teal-dark": "#38a89d",
-  teal: "#4dc0b5",
-  "teal-light": "#64d5ca",
-  "teal-lighter": "#a0f0ed",
-  "teal-lightest": "#e8fffe",
-
   "blue-darkest": "#12283a",
   "blue-darker": "#1c3d5a",
   "blue-dark": "#2779bd",
@@ -103,14 +95,6 @@ let colors = {
   "blue-lighter": "#bcdefa",
   "blue-lightest": "#eff8ff",
 
-  "indigo-darkest": "#191e38",
-  "indigo-darker": "#2f365f",
-  "indigo-dark": "#5661b3",
-  indigo: "#6574cd",
-  "indigo-light": "#7886d7",
-  "indigo-lighter": "#b2b7ff",
-  "indigo-lightest": "#e6e8ff",
-
   "purple-darkest": "#21183c",
   "purple-darker": "#382b5f",
   "purple-dark": "#794acf",
@@ -118,14 +102,6 @@ let colors = {
   "purple-light": "#a779e9",
   "purple-lighter": "#d6bbfc",
   "purple-lightest": "#f3ebff",
-
-  "pink-darkest": "#451225",
-  "pink-darker": "#6f213f",
-  "pink-dark": "#eb5286",
-  pink: "#f66d9b",
-  "pink-light": "#fa7ea8",
-  "pink-lighter": "#ffbbca",
-  "pink-lightest": "#ffebef",
 
   get ["brand-darkest"]() {
     return this["blue-darkest"];
