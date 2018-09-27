@@ -35,8 +35,8 @@
         <div class="flex items-center justify-center mt-8">
             <div class="flex flex-col mt-4 lg">
                 <div>
-                    <h1 class="text-grey-darker text-center tracking-wide text-7xl mb-6">
-                        {{ config('app.name', 'Laravel') }}
+                    <h1 class="text-grey-darker text-center tracking-normal text-7xl mb-6">
+                        Code+Design Camps
                     </h1>
                     <p class="text-center text-grey-darker">Hier kannst du dich für Camps anmelden.</p>
                     <p class="text-center mb-6 text-grey-darker">Hierfür musst du ein <a href="{{ route('register') }}" class="no-underline hover:underline  font-normal text-brand-dark">Benutzerkonto anlegen</a></p>
