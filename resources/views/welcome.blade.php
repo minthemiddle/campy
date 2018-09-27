@@ -19,7 +19,7 @@
         }(window,document,"Smooch","596dbeee3154052401f51a2c");
     </script>
 </head>
-<body class="bg-brand-lightest font-sans font-normal">
+<body class="font-sans font-normal">
     <div class="flex flex-col">
         @if(Route::has('login'))
             <div class="absolute pin-t pin-r mt-4 mr-4">
