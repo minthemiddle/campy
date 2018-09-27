@@ -12,13 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
     <script>
         !function(e,n,t,r){
             function o(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var t=n.getElementsByTagName("script")[0],r=n.createElement("script");r.async=!0,r.src=e.url,t.parentNode.insertBefore(r,t)}}catch(e){}}var s,p,a,i=[],c=[];e[t]={init:function(){s=arguments;var e={then:function(n){return c.push({type:"t",next:n}),e},catch:function(n){return c.push({type:"c",next:n}),e}};return e},on:function(){i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(n){if(delete e.__onWebMessengerHostReady__,e[t]=n,s)for(var r=n.init.apply(n,s),o=0;o<c.length;o++){var u=c[o];r="t"===u.type?r.then(u.next):r.catch(u.next)}p&&n.render.apply(n,p),a&&n.destroy.apply(n,a);for(o=0;o<i.length;o++)n.on.apply(n,i[o])};var u=new XMLHttpRequest;u.addEventListener("load",o),u.open("GET","https://"+r+".webloader.smooch.io/",!0),u.responseType="json",u.send()
         }(window,document,"Smooch","596dbeee3154052401f51a2c");
     </script>
 </head>
-<body class="bg-brand-lightest font-sans font-normal">
+<body class="font-sans font-normal">
     <div class="flex flex-col">
         @if(Route::has('login'))
             <div class="absolute pin-t pin-r mt-4 mr-4">
@@ -34,18 +35,17 @@
         <div class="flex items-center justify-center mt-8">
             <div class="flex flex-col mt-4 lg">
                 <div>
-                    <h1 class="text-grey-darker text-center tracking-wide text-7xl mb-6">
-                        {{ config('app.name', 'Laravel') }}
+                    <h1 class="text-grey-darker text-center tracking-normal text-7xl mb-6">
+                        Code+Design Camps
                     </h1>
-                    <p class="text-center text-grey-darker">Hier kannst du dich für Camps anmelden.</p>
-                    <p class="text-center mb-6 text-grey-darker">Hierfür musst du ein <a href="{{ route('register') }}" class="no-underline hover:underline  font-normal text-brand-dark">Benutzerkonto anlegen</a></p>
-                    <div class="text-center mb-8 font-bold">
+                    <div class="text-center mb-8">
                 @auth
-                    <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm text-brand-dark uppercase">Home</a>
+                    <a href="{{ url('/home') }}" class="block no-underline hover:underline text-sm text-brand-dark uppercase">Zum Profil</a>
                 @else
-                    <a href="{{ route('login') }}" class="no-underline hover:underline text-sm bg-brand-dark text-white rounded-lg p-2 uppercase">Login</a>
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm  bg-brand-dark text-white rounded-lg p-2 uppercase">Registrieren</a>
+                    <a href="{{ route('register') }}" class="mb-4 inline-block no-underline hover:underline text-sm  bg-brand-dark text-white rounded-lg p-4 tracking-wide">Für Camp anmelden</a>
                 @endauth
+                <p class="font-normal">Dein x-tes Camp? <a href="{{ route('login') }}" class="text-sm font-normal pr-6">Login</a></p>
+                    
 
                 <ul class="hidden mt-8 list-reset">
                         <li class="inline pr-8">
@@ -77,10 +77,10 @@
       <tbody>
         @foreach ($camps as $camp)
         <tr>
-          <td class="font-bold"><a href="mycamps/create/{{ $camp->id  }}">{{ $camp->city }}</a></th>
+          <td class="font-bold"><p class="font-bold">{{ $camp->city }}</p></th>
           <td>{{ $camp->from->format('d.m.') }}</td>
           <td>{{ $camp->to->format('d.m.Y') }}</td>
-          <td><p class="rounded p-2 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">{{ $camp->status }}</p></td>
+          <td class=""><p class="flex items-center"><span class="mr-2 inline-block rounded-full w-3 h-3 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">&zwnj;</span>{{ $camp->status }}</p></td>
         </tr>
     
         @endforeach
