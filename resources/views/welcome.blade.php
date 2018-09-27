@@ -81,7 +81,7 @@
           <td class="font-bold"><a href="mycamps/create/{{ $camp->id  }}">{{ $camp->city }}</a></th>
           <td>{{ $camp->from->format('d.m.') }}</td>
           <td>{{ $camp->to->format('d.m.Y') }}</td>
-          <td><p class="rounded p-2 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">{{ $camp->status }}</p></td>
+          <td class=""><p class="flex items-center"><span class="mr-2 inline-block rounded-full w-3 h-3 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">&zwnj;</span>{{ $camp->status }}</p></td>
         </tr>
     
         @endforeach
