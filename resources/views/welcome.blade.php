@@ -42,7 +42,7 @@
                     <p class="text-center mb-6 text-grey-darker">Hierfür musst du ein <a href="{{ route('register') }}" class="no-underline hover:underline  font-normal text-brand-dark">Benutzerkonto anlegen</a></p>
                     <div class="text-center mb-8 font-bold">
                 @auth
-                    <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm text-brand-dark uppercase">Home</a>
+                    <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm text-brand-dark uppercase">Zum Profil</a>
                 @else
                     <a href="{{ route('login') }}" class="no-underline hover:underline text-sm bg-brand-dark text-white rounded-lg p-2 uppercase">Login</a>
                     <a href="{{ route('register') }}" class="no-underline hover:underline text-sm  bg-brand-dark text-white rounded-lg p-2 uppercase">Registrieren</a>
