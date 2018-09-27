@@ -99,30 +99,30 @@ let colors = {
   "purple-darker": "#382b5f",
   "purple-dark": "#794acf",
   purple: "#9561e2",
-  "purple-light": "#b590eb",
+  "purple-light": "#a779e9",
   "purple-lighter": "#d6bbfc",
   "purple-lightest": "#f3ebff",
 
   get ["brand-darkest"]() {
-    return this["purple-darkest"];
+    return this["blue-darkest"];
   },
   get ["brand-darker"]() {
-    return this["purple-darker"];
+    return this["blue-darker"];
   },
   get ["brand-dark"]() {
-    return this["purple-dark"];
+    return this["blue-dark"];
   },
   get ["brand"]() {
-    return this["purple"];
+    return this["blue"];
   },
   get ["brand-light"]() {
-    return this["purple-light"];
+    return this["blue-light"];
   },
   get ["brand-lighter"]() {
-    return this["purple-lighter"];
+    return this["blue-lighter"];
   },
   get ["brand-lightest"]() {
-    return this["purple-lightest"];
+    return this["blue-lightest"];
   }
 };
 
