@@ -38,15 +38,14 @@
                     <h1 class="text-grey-darker text-center tracking-normal text-7xl mb-6">
                         Code+Design Camps
                     </h1>
-                    <p class="text-center text-grey-darker">Hier kannst du dich für Camps anmelden.</p>
-                    <p class="text-center mb-6 text-grey-darker">Hierfür musst du ein <a href="{{ route('register') }}" class="no-underline hover:underline  font-normal text-brand-dark">Benutzerkonto anlegen</a></p>
-                    <div class="text-center mb-8 font-bold">
+                    <div class="text-center mb-8">
                 @auth
-                    <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm text-brand-dark uppercase">Zum Profil</a>
+                    <a href="{{ url('/home') }}" class="block no-underline hover:underline text-sm text-brand-dark uppercase">Zum Profil</a>
                 @else
-                    <a href="{{ route('login') }}" class="no-underline hover:underline text-sm bg-brand-dark text-white rounded-lg p-2 uppercase">Login</a>
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm  bg-brand-dark text-white rounded-lg p-2 uppercase">Registrieren</a>
+                    <a href="{{ route('register') }}" class="mb-4 inline-block no-underline hover:underline text-sm  bg-brand-dark text-white rounded-lg p-4 tracking-wide">Für Camp anmelden</a>
                 @endauth
+                <p class="font-normal">Dein x-tes Camp? <a href="{{ route('login') }}" class="text-sm font-normal pr-6">Login</a></p>
+                    
 
                 <ul class="hidden mt-8 list-reset">
                         <li class="inline pr-8">
