@@ -24,7 +24,7 @@
         <nav class="bg-white shadow mb-8 pl-8 md:px-0 flex justify-between">
             
                         <div class="p-4 pl-8 flex-1">
-                            <div class="md:flex">
+                            <div class="md:flex items-center">
                                 <div class="mb-2 md:mb-0"><a href="{{ url('/profile') }}" class="text-brand no-underline font-bold mr-4 text-xl">Code+Design Camps</a></div>
                                 <div>
                                    @auth
