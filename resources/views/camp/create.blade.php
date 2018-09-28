@@ -87,7 +87,7 @@
 
         <input type="hidden" name="camp" value="{{ $camp->id }}">
 <input type="hidden" name="user" value="{{ $user->id }}">
-<div class="mt-8"><input type="submit" value="Anmelden" class="bg-blue p-2 text-white shadow"></div>
+<div class="mt-8"><input type="submit" value="Anmelden" class="bg-brand p-2 text-white shadow"></div>
 </form>
 
       </div>

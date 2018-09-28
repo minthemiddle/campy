@@ -141,7 +141,7 @@
         <div><input type="checkbox" name="cancel" class="mt-8"> <span class="text-red">Ich muss leider absagen, weil…</span><br>
             <textarea name="reason_for_cancellation" id="" rows="10" class="w-full mt-2 p-2">{{ $camp->pivot->reason_for_cancellation }}</textarea></div>
         </div>
-        <input type="submit" value="Ändern/Absagen" class="mt-4 bg-blue p-2 text-white shadow">
+        <input type="submit" value="Ändern/Absagen" class="mt-4 bg-brand p-2 text-white shadow">
 </form>
 
       </div>
