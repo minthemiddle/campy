@@ -87,14 +87,6 @@ let colors = {
   "green-lighter": "#a2f5bf",
   "green-lightest": "#e3fcec",
 
-  "blue-darkest": "#12283a",
-  "blue-darker": "#1c3d5a",
-  "blue-dark": "#2779bd",
-  blue: "#3490dc",
-  "blue-light": "#6cb2eb",
-  "blue-lighter": "#bcdefa",
-  "blue-lightest": "#eff8ff",
-
   "purple-darkest": "#21183c",
   "purple-darker": "#382b5f",
   "purple-dark": "#794acf",
