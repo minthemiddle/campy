@@ -4,7 +4,7 @@
 <div class="flex items-center px-6 md:px-0">
     <div class="w-full max-w-md md:mx-auto">
         <div class="rounded shadow">
-            <div class="font-medium text-lg text-brand-darker bg-brand-lighter p-3 rounded-t">
+            <div class="font-medium text-lg text-brand-light bg-grey-lightest p-3 font-bold rounded">
                 Registrieren (Teilnehmer)
             </div>
             <div class="bg-white p-3 rounded-b">
