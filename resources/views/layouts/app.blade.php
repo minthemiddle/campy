@@ -19,7 +19,7 @@
         }(window,document,"Smooch","596dbeee3154052401f51a2c");
     </script>
 </head>
-<body class="bg-brand-lightest h-screen antialiased">
+<body class="font-sans h-screen antialiased">
     
         <nav class="bg-white shadow mb-8 pl-8 md:px-0 flex justify-between">
             
