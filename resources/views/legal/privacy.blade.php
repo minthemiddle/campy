@@ -17,7 +17,7 @@
 <p><em>Welche zusätzlichen Daten bei Minderjährigen?</em> Bei Minderjährigen erheben wir zusätzlich Vorname, Nachname, Email-Adresse,  Telefonnummer und digitale Unterschrift eines Erziehungsberechtigten</p>
 </li>
 <li>
-<p><em>Welche Daten nicht?</em> Wir erheben keine Angaben zum Geschlecht. Für statistische Zwecke leiten wir aber Geschlechterdaten per Gender-API.com von den Vornamen ab und speichern die Gesamtsumme anonymisiert</p>
+<p><em>Welche Daten nicht?</em> Wir speichern Information zum Geschlecht nur als statistische Wahrscheinlichkeitsableitung vom Vornamen per Gender-API.com ab.</p>
 </li>
 <li>
 <p><em>Wofür?</em></p>

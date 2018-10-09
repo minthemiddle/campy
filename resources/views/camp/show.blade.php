@@ -22,8 +22,8 @@
           <td class="font-bold"><a href="mycamps/create/{{ $camp->id  }}">{{ $camp->city }}</a></th>
           <td>{{ $camp->from->format('d.m.Y') }}</td>
           <td>{{ $camp->to->format('d.m.Y') }}</td>
-          <td><p class="rounded p-2 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">{{ $camp->status }}</p></td>
-          <td>@if ($user->complete == '1')<a href="mycamps/create/{{ $camp->id  }}">Anmelden</a>@else <a href="/home">Profil vervollständigen</a>@endif</td>
+          <td><p class="flex items-center"><span class="mr-2 inline-block rounded-full w-3 h-3 @if ( $camp->status == 'Warteliste' ) bg-orange-light @else bg-green text-white @endif">&zwnj;</span>{{ $camp->status }}</p></td>
+          <td>@if ($user->complete == '1')<a href="mycamps/create/{{ $camp->id  }}">Anmelden</a>@else <a href="{{ route('profile') }}">Profil vervollständigen</a>@endif</td>
         </tr>
     
         @endforeach

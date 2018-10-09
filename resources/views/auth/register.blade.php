@@ -4,7 +4,7 @@
 <div class="flex items-center px-6 md:px-0">
     <div class="w-full max-w-md md:mx-auto">
         <div class="rounded shadow">
-            <div class="font-medium text-lg text-brand-darker bg-brand-lighter p-3 rounded-t">
+            <div class="font-medium text-lg text-brand-light bg-grey-lightest p-3 font-bold rounded">
                 Registrieren (Teilnehmer)
             </div>
             <div class="bg-white p-3 rounded-b">
@@ -30,7 +30,7 @@
                     <div class="flex items-stretch mb-3">
                         <label for="birthdate" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Geburtsdatum</label>
                         <div class="flex flex-col w-3/4">
-                            <input id="birthdate" type="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" class="flex-grow h-8 px-2 border rounded {{ $errors->has('birthdate') ? 'border-red-dark' : 'border-grey-light' }}" name="birthdate" value="{{ old('birthdate') }}" placeholder="JJJJ-MM-TT, z.B. 2000-04-06" required>
+                            <input id="birthdate" type="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" class="flex-grow h-8 px-2 border rounded {{ $errors->has('birthdate') ? 'border-red-dark' : 'border-grey-light' }}" name="birthdate" value="{{ old('birthdate') }}" placeholder="JJJJ-MM-TT" required>
                             {!! $errors->first('birthdate', '<span class="text-red-dark text-sm mt-2">Das Geburtsdatum ist falsch.</span>') !!}
                         </div>
                     </div>
@@ -63,4 +63,14 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('styles')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endsection
+
+@section('scripts')
+<script>
+const fp = flatpickr("#birthdate", {});
+</script>
 @endsection

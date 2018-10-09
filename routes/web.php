@@ -13,7 +13,7 @@
 Auth::routes();
 
 // Route::get('/', function () { return view('welcome'); });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/teilnahmebedingungen', function() { return view('legal.terms');} );
 Route::get('/datenschutz', function() { return view('legal.privacy');} );
 
@@ -22,4 +22,13 @@ Route::get('mycamps/create/{camp}', 'CampUserController@create');
 Route::resource('mycamps', 'CampUserController');
 Route::resource('camps', 'CampController');
 Route::resource('users', 'UserController');
-Route::resource('admin', 'CampAdminController');
+
+
+Route::group(['middleware' => 'can:isAdmin'], function() {
+    Route::get('/adminpanel/dashboard', 'CampAdminController@index');
+    Route::resource('admin', 'CampAdminController');
+    Route::get('/admin/campuser/confirm/{camp}/{user}', 'CampUserController@updateTransaction');
+    Route::get('/admin/campuser/confirm_laptop/{camp}/{user}', 'CampUserController@updateLaptopTransaction');
+    Route::get('/admin/campuser/cancel/{camp}/{user}', 'CampUserController@cancelParticipation');
+    Route::get('/admin/camp/{id}/export', 'CampAdminController@export');
+});

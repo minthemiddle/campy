@@ -17,7 +17,7 @@
 
 @if ($camp->pivot->status == 'registered' and $camp->pivot->contribution == 'payer')
 
-<p>Nächster Schritt: Um deine Anmeldung zu bestätigen, tätige bitte folgende Überweisung(en) bis zum <em>{{ $camp->from->subMonth(1)->format('d.m.Y') }}</em> wie folgt.</p>
+<p>Nächster Schritt: Um deine Anmeldung zu bestätigen, tätige bitte folgende Überweisung(en) so schnell möglich.</p>
 <p class="text-sm">Bitte: Unbedingt den Verwendungszweck 1:1 kopieren. Abweichungen verursachen extrem viel unnötige manuelle Arbeit.</p>
 
 
@@ -106,8 +106,9 @@
                     <label for="contribution">Unkostenbeitrag</label><br>
                     <div class="relative">
                       <select name="contribution" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
-                        <option value="payer" @if($camp->pivot->contribution == 'payer')selected @endif>Ich zahle 75€ Unkostenbeitrag</option>
+                        <option value="payer" @if($camp->pivot->contribution == 'payer')selected @endif>Ich zahle Unkostenbeitrag (siehe Webseite)</option>
                         <option value="waiver" @if($camp->pivot->contribution == 'waiver')selected @endif>Ich kann den Unkostenbeitrag gerade nicht zahlen</option>
+                        <option value="payer"></option>
                     </select>
                     <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg></div>
                     </div>
@@ -119,8 +120,11 @@
                 <div class="relative">
                   <select name="laptop" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                      <option value="own" @if ($camp->pivot->laptop == 'own') selected @endif>Nein, ich nutze eigenen Laptop</option>
-                    <option value="payer" @if ($camp->pivot->laptop == 'payer' or $camp->pivot->laptop == 'paid') selected @endif>Ja, ich leihe Laptop und überweise 75€ Unkostenbeitrag</option>
+                    @if ($camp->laptop_free === 1)<option value="winner" @if ($camp->pivot->laptop == 'winner') selected @endif>Ja, ich will kostenlosen Laptop ausleihen</option>
+                    @else
+                    <option value="payer" @if ($camp->pivot->laptop == 'payer' or $camp->pivot->laptop == 'paid') selected @endif>Ja, ich will Laptop ausleihen (Details siehe Webseite)</option>
                     <option value="waiver" @if ($camp->pivot->laptop == 'waiver') selected @endif>Ja, ich leihe Laptop, kann aber den Unkostenbeitrag nicht zahlen</option>
+                    @endif
                     
                 </select>
                 <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg></div>
@@ -135,9 +139,9 @@
         <input type="hidden" name="camp" value="{{ $camp->id }}">
         <input type="hidden" name="user" value="{{ $user->id }}">
         <div><input type="checkbox" name="cancel" class="mt-8"> <span class="text-red">Ich muss leider absagen, weil…</span><br>
-            <textarea name="reason_for_cancellation" id="" rows="10" class="w-full mt-2 p-2"></textarea></div>
+            <textarea name="reason_for_cancellation" id="" rows="10" class="w-full mt-2 p-2">{{ $camp->pivot->reason_for_cancellation }}</textarea></div>
         </div>
-        <input type="submit" value="Ändern/Absagen" class="mt-4 bg-blue p-2 text-white shadow">
+        <input type="submit" value="Ändern/Absagen" class="mt-4 bg-brand p-2 text-white shadow">
 </form>
 
       </div>

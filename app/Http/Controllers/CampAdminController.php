@@ -19,15 +19,9 @@ class CampAdminController extends Controller
 
         $user = Auth::user();
 
-        // get all camps with 
         $camps = Camp::with('users')->get();
-        // get number of required laptops
-        // Camp::with('users')->where('')
-        // $laptops = Camp::with(['users' => function ($query) {
-        //         $query->where('laptop', '=', 'payer');
-        //     }])->get();
         $last = CampUser::all();
-        $last = $last->sortByDesc('created_at')->take(3);
+        $last = $last->sortByDesc('created_at')->take(5);
 
         if ($user->role === 'admin') {
             return view('admin.show', compact('camps', 'laptops', 'last'));
@@ -66,7 +60,8 @@ class CampAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $camp = Camp::with('users')->findOrFail($id);
+        return view('admin.single', compact('camp'));
     }
 
     /**
@@ -101,5 +96,11 @@ class CampAdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function export($id)
+    {
+        $camp = Camp::with('users')->findOrFail($id);
+        return view('admin.export', compact('camp'));
     }
 }

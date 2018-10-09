@@ -12,6 +12,16 @@ class CampUser extends Pivot
             return 'Betreff: Igor K koe1805';
     }
 
+    public function getNeedsLaptopAttribute()
+    {
+        if ($this->laptop <> 'own') {
+            return 'x';
+        }
+        else {
+            return '–';
+        }
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

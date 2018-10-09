@@ -67,9 +67,9 @@
             <div class="relative">
               <select name="laptop" class="mt-2 block appearance-none w-full bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
                 <option value="own" selected>Nein, ich nutze eigenen Laptop</option>
-                <option value="payer">Ja, Ich will Laptop ausleihen (Details siehe Webseite)</option>
-                <option value="waiver">Ich kann den Unkostenbeitrag nicht zahlen</option>
-                
+                @if ($camp->laptop_free === 1)<option value="winner">Ja, ich will kostenlosen Laptop ausleihen</option>
+                @else <option value="payer">Ja, Ich will Laptop gegen Gebühr ausleihen</option>
+                <option value="waiver">Ja, ich brauche Laptop, kann aber Unkostenbeitrag nicht zahlen</option>@endif      
             </select>
             <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg></div>
             </div>
@@ -87,7 +87,7 @@
 
         <input type="hidden" name="camp" value="{{ $camp->id }}">
 <input type="hidden" name="user" value="{{ $user->id }}">
-<div class="mt-8"><input type="submit" value="Anmelden" class="bg-blue p-2 text-white shadow"></div>
+<div class="mt-8"><input type="submit" value="Anmelden" class="bg-brand p-2 text-white shadow"></div>
 </form>
 
       </div>
