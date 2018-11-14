@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/teilnahmebedingungen', function() { return view('legal.terms');} );
 Route::get('/datenschutz', function() { return view('legal.privacy');} );
+Route::get('/impressum', function() { return view('impressum');} );
 
 Route::get('/', 'WelcomeController@index');
 Route::get('mycamps/create/{camp}', 'CampUserController@create');
